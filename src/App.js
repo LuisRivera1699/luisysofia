@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -14,6 +16,15 @@ function App() {
     width: window.innerWidth,
     height: window.innerHeight
   });
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-sine',
+      once: false,
+      mirror: true,
+    });
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -238,8 +249,8 @@ function App() {
           height: initialDvh
         }}
       >
-        <img src="/images/assets/title-1.svg" className="w-auto h-[10%]" />
-        <div className="flex flex-col items-center justify-center h-[20%]">
+        <img src="/images/assets/title-1.svg" className="w-auto h-[10%]" data-aos="fade-up" />
+        <div className="flex flex-col items-center justify-center h-[20%]" data-aos="fade-up">
           <img src="/images/assets/title-2.svg" className="w-auto h-[50%]" />
           <div className="relative flex flex-col items-center justify-center h-[50%]">
             <img
@@ -267,8 +278,9 @@ function App() {
             src="/images/assets/left-photo.svg"
             className="w-[397px] h-[597px] flex-shrink-0 object-contain"
             style={{ minWidth: '397px' }}
+            data-aos="fade-right"
           />
-          <div className="relative flex-shrink-1 mx-4 flex items-center justify-center min-w-[614px] max-[600px]:min-w-[90%]" >
+          <div className="relative flex-shrink-1 mx-4 flex items-center justify-center min-w-[614px] max-[600px]:min-w-[90%]" data-aos="fade-up">
             <img src="/images/assets/card.png" className="w-full h-auto max-w-full [@media(max-height:800px)]:w-auto" />
             <img src="/images/assets/card-text.svg" className="w-[70%] h-auto max-w-full absolute top-[80px] max-[600px]:top-[40px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-auto [@media(max-height:800px)]:top-[50px]" />
             <img src="/images/assets/card-save.svg" className="w-[70%] h-auto max-w-full absolute bottom-[105px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[50%]" />
@@ -324,6 +336,7 @@ function App() {
             src="/images/assets/right-photo.svg"
             className="w-[397px] h-[597px] flex-shrink-0 object-contain"
             style={{ minWidth: '397px' }}
+            data-aos="fade-left"
           />
         </div>
       </section>
@@ -336,8 +349,8 @@ function App() {
         }}
       >
         <div className="h-full flex flex-col items-center justify-center relative">
-          <img src="/images/assets/3-up.png" className="w-auto h-1/2" />
-          <img src="/images/assets/3-down.png" className="w-auto h-1/2" />
+          <img src="/images/assets/3-up.png" className="w-auto h-1/2" data-aos="fade-down" />
+          <img src="/images/assets/3-down.png" className="w-auto h-1/2" data-aos="fade-up" />
           <img src="/images/assets/CU.png" className="w-auto h-auto absolute top-0 left-0 -translate-x-1/2 -translate-y-[30%] z-10" />
           <img src="/images/assets/CD.png" className="w-auto h-auto absolute bottom-0 left-0 -translate-x-1/2 -translate-y-[-10%] z-10" />
           <img src="/images/assets/CM.png" className="w-auto h-auto absolute top-1/2 -translate-y-1/2 right-0 -translate-x-[-40%] z-10" />
@@ -371,8 +384,8 @@ function App() {
         >
           <source src="/videos/bg-4.mp4" type="video/mp4" />
         </video>
-        <img src="/images/assets/title-4.svg" className="w-auto h-[15%] z-10" />
-        <div className="relative w-full h-[40%] mb-6">
+        <img src="/images/assets/title-4.svg" className="w-auto h-[15%] z-10" data-aos="fade-up" />
+        <div className="relative w-full h-[40%] mb-6" data-aos="fade-up">
           <div
             className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer"
             onClick={(e) => {
@@ -398,7 +411,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className={`p-4 bg-[#1f3d58] h-[40%] rounded-lg w-[250px] z-10 ${screenDimensions.width < screenDimensions.height ? 'w-[90%]' : 'w-[250px]'}`}>
+        <div className={`p-4 bg-[#1f3d58] h-[40%] rounded-lg w-[250px] z-10 ${screenDimensions.width < screenDimensions.height ? 'w-[90%]' : 'w-[250px]'}`} data-aos="fade-up">
           <div className="relative z-10 w-full h-full rounded-lg overflow-hidden shadow-lg">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.6369954487977!2d-76.9968136!3d-12.2050851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105b9001a377e85%3A0x3b4e2fd19fd58612!2sSede%2004%3A%20Casa%20del%20Lago!5e0!3m2!1ses-419!2spe!4v1759452787959!5m2!1ses-419!2spe&output=embed"
@@ -438,8 +451,9 @@ function App() {
             src="/images/assets/left-photo-5.svg"
             className="w-[397px] h-[597px] flex-shrink-0 object-contain"
             style={{ minWidth: '397px' }}
+            data-aos="fade-right"
           />
-          <div className="flex flex-col gap-16 mx-24 items-center flex-shrink-1" style={{ minWidth: screenDimensions.width < screenDimensions.height ? '90%' : '368px' }}>
+          <div className="flex flex-col gap-16 mx-24 items-center flex-shrink-1" style={{ minWidth: screenDimensions.width < screenDimensions.height ? '90%' : '368px' }} data-aos="fade-up">
             <img src="/images/assets/text-5.svg" className="w-full h-auto max-w-full" />
             <img src="/images/assets/button-5.svg" className={` h-auto cursor-pointer max-w-full ${screenDimensions.width < screenDimensions.height ? 'w-[70%]' : 'w-[250px]'}`} onClick={() => {
               window.open('https://docs.google.com/forms/d/e/1FAIpQLSca2ULzfyN3qfEQMnyJeVyTt4lvJtHkqyvvCcXwy1cTYWvAgg/viewform?usp=dialog', '_blank');
@@ -449,6 +463,7 @@ function App() {
             src="/images/assets/right-photo-5.svg"
             className="w-[397px] h-[597px] flex-shrink-0 object-contain"
             style={{ minWidth: '397px' }}
+            data-aos="fade-left"
           />
         </div>
       </section>
@@ -467,8 +482,8 @@ function App() {
             opacity: '0.85'
           }}
         />
-        <img src="/images/assets/title-6.svg" className="w-auto h-[11%] z-10" />
-        <div className="relative w-full h-[40%]">
+        <img src="/images/assets/title-6.svg" className="w-auto h-[11%] z-10" data-aos="fade-up" />
+        <div className="relative w-full h-[40%]" data-aos="fade-up">
           <div
             className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer"
             onClick={(e) => {
@@ -530,6 +545,7 @@ function App() {
         <img
           src="/images/assets/calendar-6.png"
           className="w-auto h-[40%] z-10 mt-4"
+          data-aos="fade-up"
         />
       </section>
       <section
@@ -547,7 +563,7 @@ function App() {
             opacity: '0.50'
           }}
         />
-        <img src="/images/assets/title-7.svg" className={`h-auto z-10 ${screenDimensions.width < screenDimensions.height ? 'w-[80%]' : 'w-auto'}`} />
+        <img src="/images/assets/title-7.svg" className={`h-auto z-10 ${screenDimensions.width < screenDimensions.height ? 'w-[80%]' : 'w-auto'}`} data-aos="fade-up" />
       </section>
       <section
         id="dresscode"
@@ -564,7 +580,7 @@ function App() {
             opacity: '0.87'
           }}
         />
-        <img src="/images/assets/image-7.png" className="w-auto h-full z-10" />
+        <img src="/images/assets/image-7.png" className="w-auto h-full z-10" data-aos="fade-up" />
       </section>
       <section
         id="details"
@@ -581,7 +597,7 @@ function App() {
             opacity: '0.26'
           }}
         />
-        <img src="/images/assets/image-9.png" className={`z-10 ${screenDimensions.width < 600 ? "w-full" : "h-full"}`} />
+        <img src="/images/assets/image-9.png" className={`z-10 ${screenDimensions.width < 600 ? "w-full" : "h-full"}`} data-aos="fade-up" />
       </section>
       <section
         id="galeria"
@@ -592,8 +608,8 @@ function App() {
         }}
       >
         <div className="w-full h-[40%] z-10 px-4 flex flex-col items-center gap-12">
-          <img src="/images/assets/title-10.svg" className='w-auto h-[30%]' />
-          <div className="relative w-full h-full z-10 px-4">
+          <img src="/images/assets/title-10.svg" className='w-auto h-[30%]' data-aos="fade-up" />
+          <div className="relative w-full h-full z-10 px-4" data-aos="fade-up">
             <img
               src="/images/assets/text-10.svg"
               className={`w-auto h-full absolute left-1/2 top-0 transform -translate-x-1/2 transition-opacity duration-1000  ${fadeState ? 'opacity-100' : 'opacity-0'
@@ -607,7 +623,7 @@ function App() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center w-full h-[50%] max-w-6xl mx-auto px-4 gap-4">
+        <div className="flex items-center justify-center w-full h-[50%] max-w-6xl mx-auto px-4 gap-4" data-aos="fade-up">
           {/* Left Arrow */}
           <button
             onClick={() => {
@@ -737,7 +753,7 @@ function App() {
             opacity: '0.26'
           }}
         />
-        <img src="/images/assets/text-13.svg" className="w-auto h-full z-10 px-4" />
+        <img src="/images/assets/text-13.svg" className="w-auto h-full z-10 px-4" data-aos="fade-up" />
       </section>
     </div>
   );
