@@ -8,6 +8,7 @@ function App() {
   const carouselRef11 = useRef(null);
   const [initialDvh, setInitialDvh] = useState('100vh');
   const [fadeState, setFadeState] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [screenDimensions, setScreenDimensions] = useState({
     width: window.innerWidth,
@@ -123,11 +124,114 @@ function App() {
     setIsPlaying(!isPlaying);
   };
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
+  const menuItems = [
+    { id: 'inicio', label: 'Inicio' },
+    { id: 'invitacion', label: 'Contador' },
+    { id: 'ubicacion', label: 'Donde será?' },
+    { id: 'confirmacion', label: 'Confirma tu  asistencia' },
+    { id: 'fecha', label: 'Cuando será?' },
+    { id: 'moodboard', label: 'Moodboard' },
+    { id: 'dresscode', label: 'Dress Code' },
+    { id: 'details', label: 'Detalles' },
+    { id: 'galeria', label: 'Galería' },
+    { id: 'mensaje', label: 'Regalos' }
+  ];
+
 
   return (
     <div className="min-h-screen">
+      {/* Header con menú hamburguesa */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+        <div className="flex items-center justify-end px-6 py-4">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-white focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {isMenuOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      {/* Menú lateral */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-[#0A2A73] shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Header del menú */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-white/20">
+            <h2 className="text-white text-xl font-bold" style={{ fontFamily: 'Caveat, cursive' }}>
+              Menú
+            </h2>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="text-white focus:outline-none"
+              aria-label="Close menu"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Items del menú */}
+          <nav className="flex-1 overflow-y-auto py-4">
+            {menuItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="w-full text-left px-6 py-3 text-white hover:bg-white/10 transition-colors duration-200"
+                style={{ fontFamily: 'Caveat, cursive', fontSize: '18px' }}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      {/* Overlay cuando el menú está abierto */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
       {/* Primera sección con fondo bg-1.png */}
       <section
+        id="inicio"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-between pt-8 pb-12"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-1.png')",
@@ -151,6 +255,7 @@ function App() {
         </div>
       </section>
       <section
+        id="invitacion"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-end pb-4"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-2.png')",
@@ -223,6 +328,7 @@ function App() {
         </div>
       </section>
       <section
+        id="ceremonia"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center relative overflow-hidden"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-3.png')",
@@ -250,6 +356,7 @@ function App() {
 
       </section>
       <section
+        id="ubicacion"
         className="relative flex flex-col items-center overflow-hidden pt-10 gap-5 pb-10"
         style={{
           height: '100vh'
@@ -312,6 +419,7 @@ function App() {
         </div>
       </section>
       <section
+        id="confirmacion"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center relative overflow-hidden"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-5.png')",
@@ -345,6 +453,7 @@ function App() {
         </div>
       </section>
       <section
+        id="fecha"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center relative overflow-hidden pt-6 gap-5 pb-0"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-6.png')",
@@ -424,6 +533,7 @@ function App() {
         />
       </section>
       <section
+        id="moodboard"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center relative overflow-hidden pt-6 gap-5 pb-0"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-7.png')",
@@ -440,6 +550,7 @@ function App() {
         <img src="/images/assets/title-7.svg" className={`h-auto z-10 ${screenDimensions.width < screenDimensions.height ? 'w-[80%]' : 'w-auto'}`} />
       </section>
       <section
+        id="dresscode"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center relative overflow-hidden py-6 gap-5"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-8.png')",
@@ -456,6 +567,7 @@ function App() {
         <img src="/images/assets/image-7.png" className="w-auto h-full z-10" />
       </section>
       <section
+        id="details"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center relative overflow-hidden py-6 gap-5"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-9.png')",
@@ -469,9 +581,10 @@ function App() {
             opacity: '0.26'
           }}
         />
-        <img src="/images/assets/image-9.png" className="w-auto h-auto z-10" />
+        <img src="/images/assets/image-9.png" className={`z-10 ${screenDimensions.width < 600 ? "w-full" : "h-full"}`} />
       </section>
       <section
+        id="galeria"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center relative overflow-hidden py-6 gap-5"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-10.png')",
@@ -610,6 +723,7 @@ function App() {
         <img src="/images/assets/text-12.svg" className="z-10" />
       </section> */}
       <section
+        id="mensaje"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center relative overflow-hidden py-6 gap-5"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-13.png')",
