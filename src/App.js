@@ -249,10 +249,10 @@ function App() {
           height: initialDvh
         }}
       >
-        <img src="/images/assets/title-1.svg" className="w-auto h-[10%]" data-aos="fade-up" />
+        <h1 className="text-[51px]">Luis y Sofía</h1>
         <div className="flex flex-col items-center justify-center h-[20%]" data-aos="fade-up">
-          <img src="/images/assets/title-2.svg" className="w-auto h-[50%]" />
-          <div className="relative flex flex-col items-center justify-center h-[50%]">
+          <h1 className="text-[43.3px]">07. 03. 26</h1>
+          <div className="relative flex flex-col items-center justify-center h-[42.8px]">
             <img
               src="/images/assets/play.svg"
               className="w-auto h-[100%] cursor-pointer z-10"
@@ -384,8 +384,8 @@ function App() {
         >
           <source src="/videos/bg-4.mp4" type="video/mp4" />
         </video>
-        <img src="/images/assets/title-4.svg" className="w-auto h-[15%] z-10" data-aos="fade-up" />
-        <div className="relative w-full h-[40%] mb-6" data-aos="fade-up">
+        <h1 className="text-[51px] z-10 px-2 leading-normal">¿Dónde?</h1>
+        <div className="relative w-[360px] h-[40%] mb-6" data-aos="fade-up">
           <div
             className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer"
             onClick={(e) => {
@@ -454,10 +454,24 @@ function App() {
             data-aos="fade-right"
           />
           <div className="flex flex-col gap-16 mx-24 items-center flex-shrink-1" style={{ minWidth: screenDimensions.width < screenDimensions.height ? '90%' : '368px' }} data-aos="fade-up">
-            <img src="/images/assets/text-5.svg" className="w-full h-auto max-w-full" />
-            <img src="/images/assets/button-5.svg" className={` h-auto cursor-pointer max-w-full ${screenDimensions.width < screenDimensions.height ? 'w-[70%]' : 'w-[250px]'}`} onClick={() => {
-              window.open('https://docs.google.com/forms/d/e/1FAIpQLSca2ULzfyN3qfEQMnyJeVyTt4lvJtHkqyvvCcXwy1cTYWvAgg/viewform?usp=dialog', '_blank');
-            }} />
+            <div className="flex flex-col gap-12 items-center">
+              <h1 className="text-[43.3px] w-full text-center">Confirma tu asistencia</h1>
+              <div className="flex flex-col gap-6">
+                <h1 className="text-[18px] w-[362px] text-center pierson asistencia">¡Nos gustaría compratir este momento tan importante con todos ustedes! Pero sabemos que a veces suceden acontecimientos y motivos por los cuales las fechas no cuadran.
+                </h1>
+                <h1 className="text-[18px] w-[362px] text-center pierson asistencia"> Aunque puedan o no asistir, tengan por seguro que estaran en nuestro corazon ese dia :)
+                </h1>
+              </div>
+            </div>
+
+            <a>
+              <button className="w-[250px] h-[65px] text-black rounded-xl bg-[#1f3d58] flex flex-col items-center gap-1 justify-center cursor-pointer" onClick={() => {
+                window.open('https://docs.google.com/forms/d/e/1FAIpQLSca2ULzfyN3qfEQMnyJeVyTt4lvJtHkqyvvCcXwy1cTYWvAgg/viewform?usp=dialog', '_blank');
+              }} >
+                <h1 className="text-[18px] w-[250px] text-center pierson">Confirma tu</h1>
+                <h1 className="text-[18px] w-[250px] text-center pierson">aistencia aquí</h1>
+              </button>
+            </a>
           </div>
           <img
             src="/images/assets/right-photo-5.svg"
@@ -466,7 +480,7 @@ function App() {
             data-aos="fade-left"
           />
         </div>
-      </section>
+      </section >
       <section
         id="fecha"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center relative overflow-hidden pt-6 gap-5 pb-0"
@@ -482,8 +496,8 @@ function App() {
             opacity: '0.85'
           }}
         />
-        <img src="/images/assets/title-6.svg" className="w-auto h-[11%] z-10" data-aos="fade-up" />
-        <div className="relative w-full h-[40%]" data-aos="fade-up">
+        <h1 className="text-[51px] z-10 px-2 leading-normal">¿Cuándo?</h1>
+        <div className="relative w-full h-[40%] w-[360px]" data-aos="fade-up">
           <div
             className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer"
             onClick={(e) => {
@@ -755,7 +769,7 @@ function App() {
         />
         <img src="/images/assets/text-13.svg" className="w-auto h-full z-10 px-4" data-aos="fade-up" />
       </section>
-    </div>
+    </div >
   );
 }
 
