@@ -11,6 +11,10 @@ function App() {
   const [initialDvh, setInitialDvh] = useState('100vh');
   const [fadeState, setFadeState] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [lookingOpacity, setLookingOpacity] = useState(1);
+  const lookingSectionRef = useRef(null);
+  const [kissOpacity, setKissOpacity] = useState(1);
+  const kissSectionRef = useRef(null);
 
   const [screenDimensions, setScreenDimensions] = useState({
     width: window.innerWidth,
@@ -120,6 +124,62 @@ function App() {
 
     return () => clearInterval(interval);
   }, []);
+
+  // Control del fade entre looking-1 y looking-2
+  useEffect(() => {
+    if (screenDimensions.width >= 768) return;
+
+    const handleLookingScroll = () => {
+      const section = lookingSectionRef.current;
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = section.offsetHeight;
+
+      // Calcular el progreso del scroll dentro de la sección
+      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+        const scrolled = Math.abs(rect.top);
+        const progress = scrolled / sectionHeight;
+
+        // Fade de 1 a 0 mientras scrolleas
+        const opacity = Math.max(0, Math.min(1, 1 - (progress * 2)));
+        setLookingOpacity(opacity);
+      } else if (rect.top > 0) {
+        setLookingOpacity(1);
+      }
+    };
+
+    window.addEventListener('scroll', handleLookingScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleLookingScroll);
+  }, [screenDimensions.width]);
+
+  // Control del fade entre kiss-1 y kiss-2
+  useEffect(() => {
+    if (screenDimensions.width >= 768) return;
+
+    const handleKissScroll = () => {
+      const section = kissSectionRef.current;
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = section.offsetHeight;
+
+      // Calcular el progreso del scroll dentro de la sección
+      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+        const scrolled = Math.abs(rect.top);
+        const progress = scrolled / sectionHeight;
+
+        // Fade de 1 a 0 mientras scrolleas
+        const opacity = Math.max(0, Math.min(1, 1 - (progress * 2)));
+        setKissOpacity(opacity);
+      } else if (rect.top > 0) {
+        setKissOpacity(1);
+      }
+    };
+
+    window.addEventListener('scroll', handleKissScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleKissScroll);
+  }, [screenDimensions.width]);
 
   const handlePlay = () => {
     if (!audioRef.current) {
@@ -375,6 +435,7 @@ function App() {
           />
         </div>
       </section>
+
       <section
         id="ceremonia"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center relative overflow-hidden"
@@ -419,7 +480,7 @@ function App() {
         >
           <source src="/videos/bg-4.mp4" type="video/mp4" />
         </video>
-        <h1 className="text-[51px] z-10 px-2 leading-normal">¿Dónde?</h1>
+        <h1 className="text-[51px] z-10 px-2 leading-normal" data-aos="fade-up">¿Dónde?</h1>
         <div className="relative h-[290px] w-full mb-6" data-aos="fade-up">
           <div
             className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer"
@@ -466,6 +527,31 @@ function App() {
           </div>
         </div>
       </section>
+      {screenDimensions.width < 768 && (
+        <section
+          ref={lookingSectionRef}
+          className="relative w-full"
+          style={{ height: '200vh' }}
+        >
+          {/* Contenedor fijo que se queda en el viewport */}
+          <div className="sticky top-0 w-full h-screen overflow-hidden">
+            {/* Imagen 2 - looking-2.jpg (fondo) */}
+            <img
+              src="/images/assets/looking-2.jpg"
+              alt="Looking 2"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* Imagen 1 - looking-1.jpg (encima, se desvanece) */}
+            <img
+              src="/images/assets/looking-1.jpg"
+              alt="Looking 1"
+              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+              style={{ opacity: lookingOpacity }}
+            />
+          </div>
+        </section>
+      )}
       <section
         id="confirmacion"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center relative overflow-hidden"
@@ -542,7 +628,7 @@ function App() {
             opacity: '0.85'
           }}
         />
-        <h1 className="text-[51px] z-10 px-2 leading-normal">¿Cuándo?</h1>
+        <h1 className="text-[51px] z-10 px-2 leading-normal" data-aos="fade-up">¿Cuándo?</h1>
         <div className="relative w-full h-[290px] w-full" data-aos="fade-up">
           <div
             className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer"
@@ -640,7 +726,7 @@ function App() {
             opacity: '0.87'
           }}
         />
-        <div className="flex flex-col items-center justify-center z-10 gap-4" style={{ width: window.innerWidth < 768 ? undefined : '362px' }}>
+        <div className="flex flex-col items-center justify-center z-10 gap-4" style={{ width: window.innerWidth < 768 ? undefined : '362px' }} data-aos="fade-up">
           <h1 className="text-[51px] z-10 px-2 leading-normal">Dresscode</h1>
           <h1 className="text-[18px] text-center pierson">No puede haber ningun color parecido al blanco o beige o celeste claro o amarillo claro. Ningun color que directa o indirectamente se pueda parecer al blanco en persona o en fotos.</h1>
           <div className="relative mb-4">
@@ -676,7 +762,7 @@ function App() {
             opacity: '0.26'
           }}
         />
-        <div className="flex flex-col items-center justify-center z-10 gap-8">
+        <div className="flex flex-col items-center justify-center z-10 gap-8" data-aos="fade-up">
           <h1 className="text-[51px] z-10 px-2 leading-normal">Detalles</h1>
           <div className="flex flex-col items-center justify-center gap-10">
             <div className="flex flex-col gap-4">
@@ -688,6 +774,31 @@ function App() {
           </div>
         </div>
       </section>
+      {screenDimensions.width < 768 && (
+        <section
+          ref={kissSectionRef}
+          className="relative w-full"
+          style={{ height: '200vh' }}
+        >
+          {/* Contenedor fijo que se queda en el viewport */}
+          <div className="sticky top-0 w-full h-screen overflow-hidden">
+            {/* Imagen 2 - kiss-2.jpg (fondo) */}
+            <img
+              src="/images/assets/kiss-2.jpg"
+              alt="Kiss 2"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* Imagen 1 - kiss-1.jpg (encima, se desvanece) */}
+            <img
+              src="/images/assets/kiss-1.jpg"
+              alt="Kiss 1"
+              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+              style={{ opacity: kissOpacity }}
+            />
+          </div>
+        </section>
+      )}
       <section
         id="galeria"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center relative overflow-hidden py-6 gap-5"
@@ -697,7 +808,7 @@ function App() {
         }}
       >
         <div className="w-full h-[40%] z-10 px-4 flex flex-col items-center gap-12">
-          <h1 className="text-[51px] z-10 px-2 leading-normal text-black">Nuestra historia</h1>
+          <h1 className="text-[51px] z-10 px-2 leading-normal text-black" data-aos="fade-up">Nuestra historia</h1>
           <div className="relative w-full h-full z-10 px-4" data-aos="fade-up">
             <div
               className={`w-[362px] absolute left-1/2 top-0 transform -translate-x-1/2 transition-opacity duration-1000  ${fadeState ? 'opacity-100' : 'opacity-0'
@@ -858,7 +969,7 @@ function App() {
             opacity: '0.46'
           }}
         />
-        <div className='flex flex-col items-center justify-center gap-16 text-center z-10'>
+        <div className='flex flex-col items-center justify-center gap-16 text-center z-10' data-aos="fade-up">
           <div className='flex flex-col items-center justify-center gap-4'>
             <h1 className='text-[51px] z-10 px-2 leading-normal'>Regalos</h1>
             <h1 className='text-[18px] w-[362px] text-center pierson regalos'>¡Nos llena de emoción compartir este día con ustedes! Para nosotros, el regalo es que nos acompañen. Pero si quisieran hacernos un regalo adicional, les dejamos aqui los datos de nuestras dos mesas de regalos.</h1>
