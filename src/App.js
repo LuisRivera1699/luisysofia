@@ -15,6 +15,8 @@ function App() {
   const lookingSectionRef = useRef(null);
   const [kissOpacity, setKissOpacity] = useState(1);
   const kissSectionRef = useRef(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [screenDimensions, setScreenDimensions] = useState({
     width: window.innerWidth,
@@ -201,6 +203,18 @@ function App() {
       section.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
     }
+  };
+
+  const openImageModal = (imageSrc) => {
+    setSelectedImage(imageSrc);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden'; // Evitar scroll del fondo
+  };
+
+  const closeImageModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+    document.body.style.overflow = 'unset';
   };
 
   const menuItems = [
@@ -859,63 +873,73 @@ function App() {
           >
             <img
               src="/images/carrousels/10/image-1.png"
-              className="flex-shrink-0"
+              className="flex-shrink-0 cursor-pointer"
               style={{ scrollSnapAlign: 'center' }}
               alt="Image 1"
+              onClick={() => openImageModal('/images/carrousels/10/image-1.png')}
             />
             <img
               src="/images/carrousels/10/image-2.png"
-              className="flex-shrink-0"
+              className="flex-shrink-0 cursor-pointer"
               style={{ scrollSnapAlign: 'center' }}
               alt="Image 2"
+              onClick={() => openImageModal('/images/carrousels/10/image-2.png')}
             />
             <img
               src="/images/carrousels/10/image-3.png"
-              className="flex-shrink-0"
+              className="flex-shrink-0 cursor-pointer"
               style={{ scrollSnapAlign: 'center' }}
               alt="Image 3"
+              onClick={() => openImageModal('/images/carrousels/10/image-3.png')}
             />
             <img
               src="/images/carrousels/10/image-4.png"
-              className="flex-shrink-0"
+              className="flex-shrink-0 cursor-pointer"
               style={{ scrollSnapAlign: 'center' }}
               alt="Image 4"
+              onClick={() => openImageModal('/images/carrousels/10/image-4.png')}
             />
             <img
               src="/images/carrousels/10/image-5.png"
-              className="flex-shrink-0"
+              className="flex-shrink-0 cursor-pointer"
               style={{ scrollSnapAlign: 'center' }}
               alt="Image 5"
+              onClick={() => openImageModal('/images/carrousels/10/image-5.png')}
             />
             <img
               src="/images/carrousels/11/image-1.png"
-              className="flex-shrink-0"
+              className="flex-shrink-0 cursor-pointer"
               style={{ scrollSnapAlign: 'center' }}
               alt="Image 1"
+              onClick={() => openImageModal('/images/carrousels/11/image-1.png')}
             />
             <img
               src="/images/carrousels/11/image-2.png"
-              className="flex-shrink-0"
+              className="flex-shrink-0 cursor-pointer"
               style={{ scrollSnapAlign: 'center' }}
               alt="Image 2"
+              onClick={() => openImageModal('/images/carrousels/11/image-2.png')}
             />
             <img
               src="/images/carrousels/11/image-3.png"
-              className="flex-shrink-0"
+              className="flex-shrink-0 cursor-pointer"
               style={{ scrollSnapAlign: 'center' }}
               alt="Image 3"
+              onClick={() => openImageModal('/images/carrousels/11/image-3.png')}
             />
             <img
               src="/images/carrousels/11/image-4.png"
-              className="flex-shrink-0"
+              className="flex-shrink-0 cursor-pointer"
               style={{ scrollSnapAlign: 'center' }}
               alt="Image 4"
+              onClick={() => openImageModal('/images/carrousels/11/image-4.png')}
             />
             <img
               src="/images/carrousels/11/image-5.png"
-              className="flex-shrink-0"
+              className="flex-shrink-0 cursor-pointer"
               style={{ scrollSnapAlign: 'center' }}
               alt="Image 5"
+              onClick={() => openImageModal('/images/carrousels/11/image-5.png')}
             />
           </div>
 
@@ -980,6 +1004,35 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Modal para ver imagen grande */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90"
+          onClick={closeImageModal}
+        >
+          {/* Botón cerrar (X) */}
+          <button
+            onClick={closeImageModal}
+            className="absolute top-4 right-4 text-white text-4xl font-light hover:text-gray-300 transition-colors z-[101]"
+            aria-label="Cerrar"
+          >
+            ×
+          </button>
+
+          {/* Imagen grande */}
+          <div
+            className="relative max-w-[95vw] max-h-[95vh] flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage}
+              alt="Imagen ampliada"
+              className="max-w-full max-h-[95vh] object-contain"
+            />
+          </div>
+        </div>
+      )}
     </div >
   );
 }
