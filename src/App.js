@@ -249,7 +249,31 @@ function App() {
           height: initialDvh
         }}
       >
-        <h1 className="text-[51px]">Luis y Sofía</h1>
+        <svg viewBox="0 0 600 150" className="w-full max-w-[600px] h-auto" style={{ marginTop: '20px' }}>
+          <defs>
+            <path
+              id="curve-luis-sofia"
+              d="M 50,120 Q 300,-10 550,120"
+              fill="transparent"
+            />
+          </defs>
+          <text
+            style={{
+              fontFamily: 'EDLavonia',
+              fontSize: '61px',
+              fill: 'white',
+              letterSpacing: '3px'
+            }}
+          >
+            <textPath
+              href="#curve-luis-sofia"
+              startOffset="50%"
+              textAnchor="middle"
+            >
+              Luis y Sofía
+            </textPath>
+          </text>
+        </svg>
         <div className="flex flex-col items-center justify-center h-[20%]">
           <h1 className="text-[43.3px]">07. 03. 26</h1>
           <div className="relative flex flex-col items-center justify-center h-[42.8px]">
