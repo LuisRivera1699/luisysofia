@@ -250,7 +250,7 @@ function App() {
         }}
       >
         <h1 className="text-[51px]">Luis y Sofía</h1>
-        <div className="flex flex-col items-center justify-center h-[20%]" data-aos="fade-up">
+        <div className="flex flex-col items-center justify-center h-[20%]">
           <h1 className="text-[43.3px]">07. 03. 26</h1>
           <div className="relative flex flex-col items-center justify-center h-[42.8px]">
             <img
@@ -260,8 +260,19 @@ function App() {
             />
             <img
               src="/images/assets/tap.svg"
-              className="w-auto h-[50%] absolute top-1/2 left-1/2 -translate-x-[-150%] animate-pulse"
+              className="w-auto h-[60%] absolute animate-pulse"
+              style={{ animation: 'pulse-scale 2s ease-in-out infinite', bottom: '0', right: '30%' }}
             />
+            <style jsx>{`
+              @keyframes pulse-scale {
+                0%, 100% {
+                  transform: scale(1);
+                }
+                50% {
+                  transform: scale(1.2);
+                }
+              }
+            `}</style>
           </div>
         </div>
       </section>
@@ -282,7 +293,7 @@ function App() {
           />
           <div className="relative flex-shrink-1 mx-4 flex items-center justify-center min-w-[614px] max-[600px]:min-w-[90%]" data-aos="fade-up">
             <img src="/images/assets/card.png" className="w-full h-auto max-w-full [@media(max-height:800px)]:w-auto" />
-            <img src="/images/assets/card-text.svg" className="w-[70%] h-auto max-w-full absolute top-[80px] max-[600px]:top-[40px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-auto [@media(max-height:800px)]:top-[50px]" />
+            <img src="/images/assets/card-text.svg" className="w-[70%] h-auto max-w-full absolute top-[80px] max-[600px]:top-[40px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[70%] [@media(max-height:800px)]:top-[50px]" style={{ filter: 'none', colorScheme: 'light' }} />
             <img src="/images/assets/card-save.svg" className="w-[70%] h-auto max-w-full absolute bottom-[105px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[50%]" />
             <div className="absolute bottom-[20px] left-1/2 -translate-x-[47%] flex items-center justify-center">
               <div
@@ -435,10 +446,7 @@ function App() {
         id="confirmacion"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center relative overflow-hidden"
         style={{
-          backgroundImage: "url('/images/backgrounds/bg-5.png')",
-          backgroundSize: window.innerWidth < window.innerHeight ? "390%" : undefined,
-          backgroundPositionX: window.innerWidth < window.innerHeight ? "48%" : undefined,
-          backgroundPositionY: window.innerWidth < window.innerHeight ? "95%" : undefined,
+          backgroundImage: window.innerWidth < 768 ? "url('/images/backgrounds/bg-5-mobile.png')" : "url('/images/backgrounds/bg-5.png')",
           height: '100vh'
         }}
       >
@@ -460,20 +468,31 @@ function App() {
             <div className="flex flex-col gap-20 items-center">
               <h1 className="text-[43.3px] w-full text-center">Confirma tu asistencia</h1>
               <div className="flex flex-col gap-6">
-                <h1 className="text-[18px] w-[362px] text-center pierson asistencia">¡Nos gustaría compratir este momento tan importante con todos ustedes! Pero sabemos que a veces suceden acontecimientos y motivos por los cuales las fechas no cuadran.
+                <h1 className="text-[18px] text-center pierson asistencia">¡Nos gustaría compratir este momento tan importante con todos ustedes! Pero sabemos que a veces suceden acontecimientos y motivos por los cuales las fechas no cuadran.
                 </h1>
-                <h1 className="text-[18px] w-[362px] text-center pierson asistencia"> Aunque puedan o no asistir, tengan por seguro que estaran en nuestro corazon ese dia :)
+                <h1 className="text-[18px] text-center pierson asistencia"> Aunque puedan o no asistir, tengan por seguro que estaran en nuestro corazon ese dia :)
                 </h1>
               </div>
             </div>
 
-            <a>
+            <a className='relative'>
               <button className="w-[250px] h-[65px] text-black rounded-xl bg-[#1f3d58] flex flex-col items-center gap-1 justify-center cursor-pointer" onClick={() => {
                 window.open('https://docs.google.com/forms/d/e/1FAIpQLSca2ULzfyN3qfEQMnyJeVyTt4lvJtHkqyvvCcXwy1cTYWvAgg/viewform?usp=dialog', '_blank');
               }} >
                 <h1 className="text-[18px] w-[250px] text-center pierson">Confirma tu</h1>
                 <h1 className="text-[18px] w-[250px] text-center pierson">aistencia aquí</h1>
               </button>
+              <img src="/images/assets/tap.svg" className="w-[30px] absolute animate-pulse" style={{ bottom: '-30px', right: '-30px', animation: 'pulse-scale 2s ease-in-out infinite' }} />
+              <style jsx>{`
+                @keyframes pulse-scale {
+                  0%, 100% {
+                    transform: scale(1);
+                  }
+                  50% {
+                    transform: scale(1.2);
+                  }
+                }
+              `}</style>
             </a>
           </div>
           <img
@@ -584,7 +603,7 @@ function App() {
       </section>
       <section
         id="dresscode"
-        className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center relative overflow-hidden py-6 gap-5"
+        className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center relative overflow-hidden py-6 gap-5 px-10"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-8.png')",
           height: '100vh'
@@ -597,14 +616,25 @@ function App() {
             opacity: '0.87'
           }}
         />
-        <div className="flex flex-col items-center justify-center z-10 gap-4">
+        <div className="flex flex-col items-center justify-center z-10 gap-4" style={{ width: window.innerWidth < 768 ? undefined : '362px' }}>
           <h1 className="text-[51px] z-10 px-2 leading-normal">Dresscode</h1>
-          <h1 className="text-[18px] w-[362px] text-center pierson">No puede haber ningun color parecido al blanco o beige o celeste claro o amarillo claro. Ningun color que directa o indirectamente se pueda parecer al blanco en persona o en fotos.</h1>
-          <div>
-            <img src="/images/assets/dresses.png" className="w-[362px] h-auto" />
+          <h1 className="text-[18px] text-center pierson">No puede haber ningun color parecido al blanco o beige o celeste claro o amarillo claro. Ningun color que directa o indirectamente se pueda parecer al blanco en persona o en fotos.</h1>
+          <div className="relative mb-4">
+            <img src="/images/assets/dresses.png" className="w-full h-auto" />
+            <img src="/images/assets/inspo.svg" className="w-[50px] absolute animate-pulse" style={{ bottom: '-40px', right: '-40px', animation: 'pulse-scale 2s ease-in-out infinite' }} />
+            <style jsx>{`
+              @keyframes pulse-scale {
+                0%, 100% {
+                  transform: scale(1);
+                }
+                50% {
+                  transform: scale(1.2);
+                }
+              }
+            `}</style>
           </div>
-          <h1 className="text-[18px] w-[362px] text-center pierson">Palete de colores ideal <br /> (No es obligatorio)</h1>
-          <img src="/images/assets/colors.png" className="w-[362px] h-auto" />
+          <h1 className="text-[18px] text-center pierson">Palete de colores ideal <br /> (No es obligatorio)</h1>
+          <img src="/images/assets/colors.png" className="h-auto" />
         </div>
       </section>
       <section
