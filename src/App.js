@@ -697,8 +697,14 @@ function App() {
           <button
             onClick={() => {
               const container = document.getElementById('carousel-container');
-              const imageWidth = container.children[0].offsetWidth;
-              container.scrollBy({ left: -imageWidth, behavior: 'smooth' });
+              const imageWidth = container.children[0].offsetWidth + 16; // +16 por el gap-4
+              const currentScroll = container.scrollLeft;
+              const targetScroll = currentScroll - imageWidth;
+
+              container.scrollTo({
+                left: targetScroll,
+                behavior: 'smooth'
+              });
             }}
             className="flex-shrink-0 p-2 hover:opacity-80 transition-opacity z-10"
           >
@@ -782,8 +788,14 @@ function App() {
           <button
             onClick={() => {
               const container = document.getElementById('carousel-container');
-              const imageWidth = container.children[0].offsetWidth;
-              container.scrollBy({ left: imageWidth, behavior: 'smooth' });
+              const imageWidth = container.children[0].offsetWidth + 16; // +16 por el gap-4
+              const currentScroll = container.scrollLeft;
+              const targetScroll = currentScroll + imageWidth;
+
+              container.scrollTo({
+                left: targetScroll,
+                behavior: 'smooth'
+              });
             }}
             className="flex-shrink-0 p-2 hover:opacity-80 transition-opacity z-10"
           >
