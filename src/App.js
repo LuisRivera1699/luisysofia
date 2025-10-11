@@ -385,7 +385,7 @@ function App() {
           <source src="/videos/bg-4.mp4" type="video/mp4" />
         </video>
         <h1 className="text-[51px] z-10 px-2 leading-normal">¿Dónde?</h1>
-        <div className="relative w-[360px] h-[40%] mb-6" data-aos="fade-up">
+        <div className="relative h-[290px] w-full mb-6" data-aos="fade-up">
           <div
             className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer"
             onClick={(e) => {
@@ -436,6 +436,9 @@ function App() {
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center relative overflow-hidden"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-5.png')",
+          backgroundSize: window.innerWidth < window.innerHeight ? "390%" : undefined,
+          backgroundPositionX: window.innerWidth < window.innerHeight ? "48%" : undefined,
+          backgroundPositionY: window.innerWidth < window.innerHeight ? "95%" : undefined,
           height: '100vh'
         }}
       >
@@ -454,7 +457,7 @@ function App() {
             data-aos="fade-right"
           />
           <div className="flex flex-col gap-16 mx-24 items-center flex-shrink-1" style={{ minWidth: screenDimensions.width < screenDimensions.height ? '90%' : '368px' }} data-aos="fade-up">
-            <div className="flex flex-col gap-12 items-center">
+            <div className="flex flex-col gap-20 items-center">
               <h1 className="text-[43.3px] w-full text-center">Confirma tu asistencia</h1>
               <div className="flex flex-col gap-6">
                 <h1 className="text-[18px] w-[362px] text-center pierson asistencia">¡Nos gustaría compratir este momento tan importante con todos ustedes! Pero sabemos que a veces suceden acontecimientos y motivos por los cuales las fechas no cuadran.
@@ -497,7 +500,7 @@ function App() {
           }}
         />
         <h1 className="text-[51px] z-10 px-2 leading-normal">¿Cuándo?</h1>
-        <div className="relative w-full h-[40%] w-[360px]" data-aos="fade-up">
+        <div className="relative w-full h-[290px] w-full" data-aos="fade-up">
           <div
             className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer"
             onClick={(e) => {
@@ -594,7 +597,15 @@ function App() {
             opacity: '0.87'
           }}
         />
-        <img src="/images/assets/image-7.png" className="w-auto h-full z-10" data-aos="fade-up" />
+        <div className="flex flex-col items-center justify-center z-10 gap-4">
+          <h1 className="text-[51px] z-10 px-2 leading-normal">Dresscode</h1>
+          <h1 className="text-[18px] w-[362px] text-center pierson">No puede haber ningun color parecido al blanco o beige o celeste claro o amarillo claro. Ningun color que directa o indirectamente se pueda parecer al blanco en persona o en fotos.</h1>
+          <div>
+            <img src="/images/assets/dresses.png" className="w-[362px] h-auto" />
+          </div>
+          <h1 className="text-[18px] w-[362px] text-center pierson">Palete de colores ideal <br /> (No es obligatorio)</h1>
+          <img src="/images/assets/colors.png" className="w-[362px] h-auto" />
+        </div>
       </section>
       <section
         id="details"
@@ -611,7 +622,17 @@ function App() {
             opacity: '0.26'
           }}
         />
-        <img src="/images/assets/image-9.png" className={`z-10 ${screenDimensions.width < 600 ? "w-full" : "h-full"}`} data-aos="fade-up" />
+        <div className="flex flex-col items-center justify-center z-10 gap-8">
+          <h1 className="text-[51px] z-10 px-2 leading-normal">Detalles</h1>
+          <div className="flex flex-col items-center justify-center gap-10">
+            <div className="flex flex-col gap-4">
+              <h1 className="text-[18px] w-[362px] text-center pierson">De preferencia no venir con niños (es una fiesta de adultos con alcohol y elementos que podrían ser peligrosos)</h1>
+              <h1 className="text-[18px] w-[362px] text-center pierson">Confirma tu asistencia hasta el 07 de enero del 2026</h1>
+              <h1 className="text-[18px] w-[362px] text-center pierson">Pedimos llegar puntuales para poder seguir el cronograma.</h1>
+            </div>
+            <img src="/images/assets/details.png" className="w-[362px] h-auto" />
+          </div>
+        </div>
       </section>
       <section
         id="galeria"
@@ -622,18 +643,22 @@ function App() {
         }}
       >
         <div className="w-full h-[40%] z-10 px-4 flex flex-col items-center gap-12">
-          <img src="/images/assets/title-10.svg" className='w-auto h-[30%]' data-aos="fade-up" />
+          <h1 className="text-[51px] z-10 px-2 leading-normal text-black">Nuestra historia</h1>
           <div className="relative w-full h-full z-10 px-4" data-aos="fade-up">
-            <img
-              src="/images/assets/text-10.svg"
-              className={`w-auto h-full absolute left-1/2 top-0 transform -translate-x-1/2 transition-opacity duration-1000  ${fadeState ? 'opacity-100' : 'opacity-0'
+            <div
+              className={`w-[362px] absolute left-1/2 top-0 transform -translate-x-1/2 transition-opacity duration-1000  ${fadeState ? 'opacity-100' : 'opacity-0'
                 }`}
-            />
-            <img
-              src="/images/assets/text-11.svg"
-              className={`w-auto h-full absolute left-1/2 top-0 transform -translate-x-1/2 transition-opacity duration-1000 ${fadeState ? 'opacity-0' : 'opacity-100'
-                }`}
-            />
+            >
+              <h1 className="text-[18px] w-[362px] text-center pierson text-black">Nos conocimos en 2015 en la pre de pamer. Fuimos buenos amigos hasta que nuestras carreras y la vida nos alejaron un tiempo. <br /> <br /> Nos reencontramos en el 2023 y fue como si el tiempo no hubiera pasado. Recuperamos una amistad que, no sabíamos, nos acompañaría toda la vida.</h1>
+            </div>
+            <div
+
+              className={`w-[362px] absolute left-1/2 top-0 transform -translate-x-1/2 transition-opacity duration-1000 ${fadeState ? 'opacity-0' : 'opacity-100'
+                } flex flex-col items-center gap-4`}
+            >
+              <h1 className='text-[18px] w-[362px] text-center pierson text-black'>Hoy somos uno solo. Somos amigos, compañeros, complices, amantes y queremos seguirlo siendo hasta el final de nuestros dias.</h1>
+              <h1 className='w-[300px] text-[18px] text-center pierson text-black'>Gracias a los que nos han acompañado todos estos años (solos y juntos).</h1>
+            </div>
           </div>
         </div>
 
@@ -764,10 +789,19 @@ function App() {
           className="absolute inset-0"
           style={{
             backgroundColor: '#4e3c2c',
-            opacity: '0.26'
+            opacity: '0.46'
           }}
         />
-        <img src="/images/assets/text-13.svg" className="w-auto h-full z-10 px-4" data-aos="fade-up" />
+        <div className='flex flex-col items-center justify-center gap-16 text-center z-10'>
+          <div className='flex flex-col items-center justify-center gap-4'>
+            <h1 className='text-[51px] z-10 px-2 leading-normal'>Regalos</h1>
+            <h1 className='text-[18px] w-[362px] text-center pierson regalos'>¡Nos llena de emoción compartir este día con ustedes! Para nosotros, el regalo es que nos acompañen. Pero si quisieran hacernos un regalo adicional, les dejamos aqui los datos de nuestras dos mesas de regalos.</h1>
+          </div>
+          <div className='flex flex-col items-center justify-center gap-10'>
+            <h1 className='text-[18px] w-[362px] text-center pierson regalos'>Banco Interbank<br />Nombre: Sofía Isabel Puntriano García<br />No. de cuenta: 98742983740347<br /><br />o<br /><br />yape/plin<br />955170938</h1>
+            <h1 className='text-[41px] w-[362px] text-center'>¡Muchas gracias!</h1>
+          </div>
+        </div>
       </section>
     </div >
   );
