@@ -955,7 +955,7 @@ function App() {
           <img src="/images/assets/colors.png" className="h-auto" />
         </div>
       </section>
-      <section
+      {/* <section
         id="confirmacion"
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center relative overflow-hidden"
         style={{
@@ -1017,7 +1017,7 @@ function App() {
             data-aos="fade-left"
           />
         </div>
-      </section >
+      </section > */}
       
       {/* <section
         id="moodboard"
