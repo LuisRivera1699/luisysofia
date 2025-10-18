@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OurUseCases.com | Business Use Cases</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        .use-case-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden; /* Ensures the image corners are rounded */
+        }
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .card-header-text {
+            transition: transform 0.3s ease;
+        }
+        .use-case-card:hover .card-header-text {
+            transform: scale(1.05);
+        }
+        .category-toggle svg {
+            transition: transform 0.3s ease;
+        }
+        .grid-container {
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+        }
+        .grid-container.open {
+             max-height: 1500px; /* Adjust as needed for more rows */
+             opacity: 1;
+        }
+
+        /* Styles for the modals */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+        .modal-content {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-height: 90vh;
+            overflow-y: auto;
+            width: 100%;
+            max-width: 56rem; /* 896px */
+        }
+        .section-bg {
+            background-color: #F9FAFB;
+        }
+        
+        /* Styles for the SDX Modal specifically */
+        #sdxModal .modal-content {
+             max-width: 72rem; /* Larger modal for SDX content */
+        }
+        #sdxModal {
+            --primary-color: #8C2D40; /* ahatis Burgundy */
+            --primary-color-dark: #732434;
+            --accent-color: #475569; /* slate-600 */
+            --accent-color-dark: #334155; /* slate-700 */
+        }
+        #sdxModal .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        #sdxModal .section-subtitle {
+            font-size: 1rem;
+            color: #475569;
+            max-width: 65ch;
+            margin: 1rem auto 0;
+        }
+        #sdxModal .section-subtitle.text-white {
+            color: #e2e8f0;
+        }
+        #sdxModal .tab-active {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+        #sdxModal .tab-inactive {
+            background-color: #e2e8f0;
+            color: #334155;
+        }
+        #sdxModal .comparison-card-active {
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transform: translateY(-4px);
+        }
+        #sdxModal input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        #sdxModal input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-blue-900 text-white shadow-md">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <h1 class="text-3xl font-bold">Business Use Case & ROI Center</h1>
+            <p class="mt-1 text-gray-300">Select a use case to explore the process and calculate potential return on investment.</p>
+        </div>
+    </header>
+
+    <!-- Use Cases Grid -->
+    <main class="container mx-auto px-6 py-12">
+        
+        <!-- AI & Automation Category -->
+        <div class="mb-8 bg-white rounded-xl shadow-md">
+            <button class="category-toggle w-full flex justify-between items-center p-6 text-left">
+                <h2 class="text-2xl font-bold text-gray-800">AI & Automation</h2>
+                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="grid-container">
+                 <div class="p-6 pt-0">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="use-case-card bg-white rounded-xl border border-gray-200 flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-violet-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-violet-800 text-center px-4">AI Assistant</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-violet-800">AI Assistant</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Deploy intelligent assistants to automate tasks and improve user engagement.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-gray-400">Details to be defined</span>
+                                    <a href="Downloads/AICC.pdf" download onclick="event.stopPropagation()" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use-case-card bg-white rounded-xl border border-gray-200 flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-indigo-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-indigo-800 text-center px-4">AI Strategy</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-indigo-800">AI Strategy</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Develop a comprehensive AI strategy to drive innovation and efficiency.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-gray-400">Details to be defined</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use-case-card bg-white rounded-xl border border-gray-200 flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-fuchsia-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-fuchsia-800 text-center px-4">Testing Automation</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-fuchsia-800">Testing Automation</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Powered by ImpactQA for efficient and reliable software testing solutions.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-gray-400">Details to be defined</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Management Category -->
+        <div class="mb-8 bg-white rounded-xl shadow-md">
+            <button class="category-toggle w-full flex justify-between items-center p-6 text-left">
+                <h2 class="text-2xl font-bold text-gray-800">Data Management</h2>
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="grid-container">
+                <div class="p-6 pt-0">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div id="dataIngestionCard" class="use-case-card bg-white rounded-xl border border-gray-200 cursor-pointer flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-blue-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-blue-800 text-center px-4 leading-tight">Sensor Data<br>Capture / Analytics</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-blue-800">Sensor Data Capture / Analytics</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Analyze costs of legacy data platforms and calculate savings with a modern approach.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-blue-600 hover:text-blue-700">Explore & Calculate ROI &rarr;</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use-case-card bg-white rounded-xl border border-gray-200 flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-rose-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-rose-800 text-center px-4">ERP Data Migration</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-rose-800">ERP Data Migration</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Streamline ERP data migration during major upgrades or acquisitions.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-gray-400">Details to be defined</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Staffing Category -->
+        <div class="mb-8 bg-white rounded-xl shadow-md">
+            <button class="category-toggle w-full flex justify-between items-center p-6 text-left">
+                <h2 class="text-2xl font-bold text-gray-800">Staffing</h2>
+                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="grid-container">
+                 <div class="p-6 pt-0">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="use-case-card bg-white rounded-xl border border-gray-200 flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-teal-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-teal-800 text-center px-4">Human Resource Management</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-teal-800">Human Resource Management</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Determine when to use contractors and assess cultural fit for future demand.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-gray-400">Details to be defined</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Supply Chain Category -->
+        <div class="mb-8 bg-white rounded-xl shadow-md">
+            <button class="category-toggle w-full flex justify-between items-center p-6 text-left">
+                <h2 class="text-2xl font-bold text-gray-800">Supply Chain</h2>
+                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="grid-container">
+                 <div class="p-6 pt-0">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                         <div id="sdxCard" class="use-case-card bg-white rounded-xl border border-gray-200 cursor-pointer flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-green-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-green-800 text-center px-4">Supplier Data Exchange</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-green-800">Supplier Data Exchange</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Define the business process for seamless data exchange with your suppliers.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-green-600 hover:text-green-700">Explore & Calculate ROI &rarr;</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use-case-card bg-white rounded-xl border border-gray-200 flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-purple-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-purple-800 text-center px-4">Purchasing</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-purple-800">Purchasing</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Optimize purchasing decisions and manage supplier relationships effectively.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-gray-400">Details to be defined</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use-case-card bg-white rounded-xl border border-gray-200 flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-cyan-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-cyan-800 text-center px-4">Inventory Control</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-cyan-800">Inventory Control</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Analyze trade-offs between transferring, buying, or building products.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-gray-400">Details to be defined</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="use-case-card bg-white rounded-xl border border-gray-200 flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-lime-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-lime-800 text-center px-4">Transfers/Repositioning</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-lime-800">Transfers/Repositioning</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Optimize inventory levels by strategically transferring and repositioning stock.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-gray-400">Details to be defined</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Trade Promotion Management Category -->
+        <div class="mb-8 bg-white rounded-xl shadow-md">
+            <button class="category-toggle w-full flex justify-between items-center p-6 text-left">
+                <h2 class="text-2xl font-bold text-gray-800">Trade Promotion Management</h2>
+                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="grid-container">
+                <div class="p-6 pt-0">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="use-case-card bg-white rounded-xl border border-gray-200 flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-amber-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-amber-800 text-center px-4">Trade Promotion Effectiveness</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-amber-800">Trade Promotion Effectiveness</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Model the financial benefits of optimizing your Trade Promotion Effectiveness activities.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-gray-400">Details to be defined</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use-case-card bg-white rounded-xl border border-gray-200 flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-orange-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-orange-800 text-center px-4">Revenue Growth Management</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-orange-800">RGM</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Identify and capture revenue growth opportunities through analytics and strategy.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-gray-400">Details to be defined</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="use-case-card bg-white rounded-xl border border-gray-200 flex flex-col">
+                            <div class="w-full h-32 flex items-center justify-center bg-sky-50 rounded-t-xl"><p class="card-header-text text-2xl font-bold text-sky-800 text-center px-4">In-Store Execution</p></div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h2 class="text-xl font-bold mb-2 text-sky-800">In-Store Execution</h2>
+                                <p class="text-gray-600 mb-4 flex-grow text-sm">Track and optimize performance at the shelf level for better sales and compliance.</p>
+                                <div class="mt-auto flex items-center justify-between">
+                                    <span class="font-semibold text-gray-400">Details to be defined</span>
+                                    <a href="#" download onclick="event.stopPropagation()" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-lg text-sm transition-colors">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Partnerships Section -->
+        <section class="mt-16 bg-white p-8 rounded-xl shadow-md">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Key Partnerships</h2>
+            <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-gray-600 font-semibold">
+                <span>Test Automation</span>
+                <span>Custom Built Applications</span>
+                <span>SAP (Conversions & Implementations)</span>
+                <span>Technology Staffing</span>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-white mt-12">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; 2024 ourusecases.com. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- Modal for Real Time Data Ingestion Calculator -->
+    <div id="calculatorModal" class="modal-backdrop hidden">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-5 border-b">
+                <h3 class="text-2xl font-bold">Sensor Data Capture / Analytics</h3>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl font-bold">&times;</button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-4 md:p-8">
+                <!-- OT Data Flow Section from original file -->
+                <section class="mb-12">
+                    <div class="container mx-auto">
+                        <h2 class="text-3xl font-bold text-center mb-2">The Vicious Cycle of OT Data Costs</h2>
+                        <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">Legacy platforms lock you into a costly and complex cycle, where value is extracted at every stage, repeating across every site and system.</p>
+                        <div class="relative max-w-4xl mx-auto">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 text-center">
+                                <div class="p-6 bg-white rounded-lg shadow-lg z-10 border"><svg class="w-12 h-12 mx-auto mb-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg><h3 class="text-xl font-semibold">1. Data Generation</h3><p class="text-gray-600 mt-2">Sensors and PLCs generate vast amounts of raw data.</p></div>
+                                <div class="p-6 bg-white rounded-lg shadow-lg z-10 border"><svg class="w-12 h-12 mx-auto mb-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg><h3 class="text-xl font-semibold">2. Costly Ingestion</h3><p class="text-gray-600 mt-2">Data is funneled into a cloud storage solution with limited value add.</p></div>
+                                <div class="p-6 bg-white rounded-lg shadow-lg z-10 border"><svg class="w-12 h-12 mx-auto mb-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg><h3 class="text-xl font-semibold">3. High-Cost Storage</h3><p class="text-gray-600 mt-2">Per-tag licenses inflate your storage and processing costs.</p></div>
+                                <div class="p-6 bg-white rounded-lg shadow-lg z-10 border"><svg class="w-12 h-12 mx-auto mb-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg><h3 class="text-xl font-semibold">4. Limited Analytics</h3><p class="text-gray-600 mt-2">Insights are gated by per-user fees and slow performance.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- ROI Calculator Section from original file -->
+                <section id="calculator" class="section-bg -mx-4 -my-8 md:-mx-8 md:-mb-8 p-4 md:p-8 rounded-b-lg">
+                    <div class="container mx-auto">
+                        <h2 class="text-3xl font-bold text-center mb-4">The Hidden Costs of Legacy Platforms</h2>
+                        <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Legacy platform vendors often have complex pricing based on data tags, users, and expensive annual licenses. Their "Flex Credit" system can obscure the true cost, leading to budget overruns. We offer a simpler, more transparent model.</p>
+                        <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg"><h3 class="text-2xl font-bold text-center mb-6">Estimate Your Annual Savings</h3><div class="grid md:grid-cols-2 gap-8"><div><div class="mb-4"><label for="tags" class="block text-gray-700 font-medium mb-2">Number of Data Tags</label><input type="number" id="tags" value="10000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></div><div class="mb-4"><label for="costPerTag" class="block text-gray-700 font-medium mb-2">Estimated Cost per Tag/Year (Legacy)</label><input type="number" id="costPerTag" value="15" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></div><div class="mb-4"><label for="platformFee" class="block text-gray-700 font-medium mb-2">Annual Platform/License Fee (Legacy)</label><input type="number" id="platformFee" value="50000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></div><button id="calculateBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Calculate</button></div><div class="bg-gray-50 p-6 rounded-lg"><h4 class="text-xl font-semibold mb-4 text-center">Your Estimated Costs & Savings</h4><div class="space-y-4"><div><p class="text-gray-600">Legacy Platform Estimated Cost:</p><p id="legacyCost" class="text-3xl font-bold text-red-600">$0</p></div><hr><div><p class="text-gray-600">Our Platform Estimated Cost:</p><p id="ourCost" class="text-3xl font-bold text-green-600">$0</p></div><div class="bg-green-100 p-4 rounded-lg mt-4"><p class="text-gray-700 font-semibold">Your Estimated Annual Savings:</p><p id="savings" class="text-4xl font-bold text-green-700">$0</p><p id="savingsPercent" class="text-lg font-medium text-green-700">That's a 0% reduction!</p></div></div></div></div></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for Supplier Data Exchange (SDX) -->
+    <div id="sdxModal" class="modal-backdrop hidden">
+        <div class="modal-content">
+             <!-- Modal Header -->
+            <div class="flex justify-between items-center p-5 border-b">
+                <h3 class="text-2xl font-bold">Supplier Data Exchange</h3>
+                <button id="closeSdxModalBtn" class="text-gray-400 hover:text-gray-600 text-3xl font-bold">&times;</button>
+            </div>
+            <!-- Modal Body - Content from SDX file -->
+            <div id="sdxModalBody" class="p-4 md:p-8 text-slate-700">
+                <!-- This content will be populated by JS from the SDX file -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Accordion Script ---
+            const toggles = document.querySelectorAll('.category-toggle');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const chevron = toggle.querySelector('svg');
+                    
+                    content.classList.toggle('open');
+                    chevron.classList.toggle('rotate-180');
+                });
+            });
+
+            // --- Modal Control Script ---
+            const dataIngestionCard = document.getElementById('dataIngestionCard');
+            const calculatorModal = document.getElementById('calculatorModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            
+            const sdxCard = document.getElementById('sdxCard');
+            const sdxModal = document.getElementById('sdxModal');
+            const closeSdxModalBtn = document.getElementById('closeSdxModalBtn');
+
+            const openModal = (modal) => {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeModal = (modal) => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            };
+
+            dataIngestionCard.addEventListener('click', () => openModal(calculatorModal));
+            closeModalBtn.addEventListener('click', () => closeModal(calculatorModal));
+            calculatorModal.addEventListener('click', (event) => {
+                if (event.target === calculatorModal) closeModal(calculatorModal);
+            });
+
+            sdxCard.addEventListener('click', () => {
+                openModal(sdxModal);
+                initializeSdxModal();
+            });
+            closeSdxModalBtn.addEventListener('click', () => closeModal(sdxModal));
+            sdxModal.addEventListener('click', (event) => {
+                if (event.target === sdxModal) closeModal(sdxModal);
+            });
+
+            // --- ROI Calculator Script (Data Ingestion) ---
+            const calculateBtn = document.getElementById('calculateBtn');
+            const runCalculation = () => {
+                const tags = parseFloat(document.getElementById('tags').value) || 0;
+                const costPerTag = parseFloat(document.getElementById('costPerTag').value) || 0;
+                const platformFee = parseFloat(document.getElementById('platformFee').value) || 0;
+                const legacyCost = (tags * costPerTag) + platformFee;
+                const savingsPercentage = 0.35;
+                const ourCost = legacyCost * (1 - savingsPercentage);
+                const savings = legacyCost - ourCost;
+                const formatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+                document.getElementById('legacyCost').textContent = formatter.format(legacyCost);
+                document.getElementById('ourCost').textContent = formatter.format(ourCost);
+                document.getElementById('savings').textContent = formatter.format(savings);
+                if (legacyCost > 0) {
+                    const actualSavingsPercent = (savings / legacyCost) * 100;
+                    document.getElementById('savingsPercent').textContent = `That's a ${actualSavingsPercent.toFixed(0)}% reduction!`;
+                } else {
+                    document.getElementById('savingsPercent').textContent = "Enter your data to see savings.";
+                }
+            };
+            calculateBtn.addEventListener('click', runCalculation);
+            runCalculation();
+            
+            // --- SDX Modal Content and Script Initialization ---
+            let isSdxInitialized = false;
+            function initializeSdxModal() {
+                if (isSdxInitialized) return;
+                
+                const sdxModalBody = document.getElementById('sdxModalBody');
+                sdxModalBody.innerHTML = `
+                    <main>
+                        <section class="text-center py-10 md:py-16"><div class="container mx-auto px-6"><h1 class="text-4xl md:text-5xl font-extrabold text-[--primary-color] leading-tight">Tired of Chasing Purchase Orders?</h1><p class="mt-4 text-xl md:text-2xl text-[--accent-color] font-semibold">Stop Searching. Start Knowing.</p><p class="mt-6 max-w-3xl mx-auto text-lg text-slate-600">Introducing ahatis's <span class="font-bold">Supplier Data Exchange (SDX)</span>: Get on-demand disposition of your purchase orders directly from your manufacturers' systems. No more calls, no more emails, no more uncertainty.</p></div></section>
+                        <section class="py-12 md:py-20"><div class="container mx-auto px-6 text-center"><h2 class="section-title">It's Time for a Better Way</h2><p class="section-subtitle">The traditional way of tracking orders is broken, causing friction and wasting valuable time. We built a modern solution to replace outdated methods. See the difference for yourself.</p><div class="mt-12 flex justify-center space-x-4"><button id="btn-old-way" class="px-6 py-3 font-semibold rounded-lg transition-all duration-300">👎 The Old Way</button><button id="btn-ahatis-way" class="px-6 py-3 font-semibold rounded-lg transition-all duration-300">👍 The ahatis Way</button></div><div id="comparison-content" class="mt-8 max-w-4xl mx-auto grid md:grid-cols-2 gap-8"></div></div></section>
+                        <section id="how-it-works" class="py-12 md:py-20 bg-slate-50"><div class="container mx-auto px-6 text-center"><h2 class="section-title">Simple, Secure, and Seamless</h2><p class="section-subtitle">Our streamlined, three-step process is designed for maximum efficiency and security, eliminating manual work. Follow the flow below to see how seamlessly data moves from your supplier directly to you.</p><div class="mt-16 max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0 md:space-x-8"><div class="text-center w-full md:w-1/4"><div class="text-5xl mb-3">🛢️</div><h3 class="text-xl font-bold text-slate-800">1. Place PO</h3><p class="mt-2 text-slate-600">You place a PO with a manufacturer, just as you always do.</p></div><div class="text-5xl text-slate-300 transform md:rotate-0 rotate-90">➔</div><div class="text-center w-full md:w-1/4"><div class="text-5xl mb-3">🔄</div><h3 class="text-xl font-bold text-slate-800">2. API Connects</h3><p class="mt-2 text-slate-600">Our secure API instantly and automatically queries the manufacturer's ERP.</p></div><div class="text-5xl text-slate-300 transform md:rotate-0 rotate-90">➔</div><div class="text-center w-full md:w-1/4"><div class="text-5xl mb-3">📈</div><h3 class="text-xl font-bold text-slate-800">3. Act Proactively</h3><p class="mt-2 text-slate-600">Use on-demand data to manage expectations and make proactive decisions.</p></div></div></div></section>
+                        <section id="advanced-capabilities" class="py-12 md:py-20"><div class="container mx-auto px-6 text-center"><h2 class="section-title">Features & Capabilities</h2><p class="section-subtitle">Our platform offers powerful tools that extend beyond simple status updates, giving you deeper insights and greater control over your procurement process.</p><div class="mt-16 max-w-5xl mx-auto grid md:grid-cols-2 gap-8 text-left"><div class="bg-slate-50 p-8 rounded-lg border border-slate-200 flex flex-col"><div><h3 class="text-2xl font-bold text-slate-800 mb-2">Standard</h3><div class="mb-2"><span class="text-4xl font-bold text-slate-900">$6,000</span><span class="text-slate-500">/ year</span></div><p class="text-sm font-semibold text-[--primary-color] mb-6">Partnership Discounts up to 100%</p><ul class="space-y-4"><li class="flex items-start"><span class="mr-3 text-2xl">✅</span><span><strong>Current Disposition:</strong> Know the real-time status of every open PO.</span></li><li class="flex items-start"><span class="mr-3 text-2xl">🔄</span><span><strong>Changes:</strong> Get immediate alerts on any modifications to quantities, dates, or prices.</span></li><li class="flex items-start"><span class="mr-3 text-2xl">💰</span><span><strong>Open Liability:</strong> Maintain a clear view of your financial commitments with suppliers.</span></li><li class="flex items-start"><span class="mr-3 text-2xl">📄</span><span><strong>Original Version:</strong> Easily access the original PO document for reference and comparison.</span></li></ul></div><div class="mt-auto pt-6"><h4 class="font-bold text-slate-700">Implementation:</h4><ul class="text-sm text-slate-600 mt-2 list-disc list-outside ml-4 space-y-1"><li>Does not require any distributor data</li><li>Minimal time required (8-12 hours)</li><li>Live 30 days after agreements are in place</li></ul></div></div><div class="bg-slate-800 text-white p-8 rounded-lg border border-slate-700 flex flex-col"><div><h3 class="text-2xl font-bold text-white mb-2">Advanced</h3><div class="mb-6"><span class="text-4xl font-bold text-white">$18,000</span><span class="text-slate-300">/ year</span></div><ul class="space-y-4"><li class="flex items-start"><span class="mr-3 text-2xl">🔗</span><span><strong>Supply Chain Impact:</strong> See exactly which customer orders are affected by a change in a supplier PO.</span></li><li class="flex items-start"><span class="mr-3 text-2xl">📊</span><span><strong>Month-End Reporting:</strong> Automate comprehensive reports on PO activity and supplier performance.</span></li><li class="flex items-start"><span class="mr-3 text-2xl">🏷️</span><span><strong>Demand Category Assignment:</strong> Categorize purchases to better understand spending and forecast needs.</span></li><li class="flex items-start"><span class="mr-3 text-2xl">↔️</span><span><strong>PO Reconciliation:</strong> Instantly spot and resolve discrepancies between your PO and the supplier's version.</span></li></ul></div><div class="mt-auto pt-6"><h4 class="font-bold text-slate-200">Implementation:</h4><ul class="text-sm text-slate-300 mt-2 list-disc list-outside ml-4 space-y-1"><li>Requires 3 data templates (inventory, POs, sales)</li><li>Minimal time required (16-24 hours)</li><li>Live 60 days after agreements are in place</li></ul></div></div></div></div></section>
+                        <section id="standard-calculator" class="py-12 md:py-20 bg-[--primary-color] text-white"><div class="container mx-auto px-6 text-center"><h2 class="section-title text-white">Calculate Your Savings with Standard Capabilities</h2><p class="section-subtitle text-white">Estimate your potential time and cost savings from automating manual updates and follow-ups.</p><div class="mt-12 max-w-3xl mx-auto bg-white text-slate-800 p-8 rounded-xl shadow-2xl grid md:grid-cols-2 gap-8 items-center"><div class="space-y-6"><div><label for="po-slider" class="block font-semibold mb-2">POs per Week: <span id="po-value" class="font-bold text-[--primary-color]">20</span></label><input id="po-slider" type="range" min="0" max="80" value="20" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer"></div><div><label for="setup-time-slider" class="block font-semibold mb-2">Time per Initial Update (mins): <span id="setup-time-value" class="font-bold text-[--primary-color]">20</span></label><input id="setup-time-slider" type="range" min="0" max="30" value="20" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer"></div><div><label for="time-slider" class="block font-semibold mb-2">Time per Manual Follow-up (mins): <span id="time-value" class="font-bold text-[--primary-color]">15</span></label><input id="time-slider" type="range" min="1" max="30" value="15" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer"></div><div><label for="wage-slider" class="block font-semibold mb-2">Avg Hourly Employee Cost ($): <span id="wage-value" class="font-bold text-[--primary-color]">35</span></label><input id="wage-slider" type="range" min="15" max="75" value="35" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer"></div></div><div class="text-center bg-slate-50 p-6 rounded-lg"><h3 class="text-lg font-semibold text-slate-700">Estimated Annual Labor Savings</h3><p id="time-saved" class="text-4xl font-bold text-[--primary-color] my-2">606.2 Hours</p><p class="text-slate-500">which is approximately</p><p id="cost-saved" class="text-3xl font-bold text-[--primary-color] mt-2">$21,217</p></div></div></div></section>
+                        <section id="advanced-calculator" class="py-12 md:py-20 bg-slate-800 text-white"><div class="container mx-auto px-6 text-center"><h2 class="section-title text-white">Calculate Your ROI with Advanced Capabilities</h2><p class="section-subtitle text-white">Estimate the strategic financial impact from improved fill rates and inventory reduction.</p><div class="mt-12 max-w-3xl mx-auto bg-white text-slate-800 p-8 rounded-xl shadow-2xl grid md:grid-cols-2 gap-8 items-center"><div class="space-y-6"><div><label for="fill-rate-slider" class="block font-semibold mb-2">Customer Fill Rate Improvement (%): <span id="fill-rate-value" class="font-bold text-[--primary-color]">1.5</span>%</label><input id="fill-rate-slider" type="range" min="0" max="25" value="1.5" step="0.5" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer"></div><div><label for="inventory-slider" class="block font-semibold mb-2">Inventory Improvement (%): <span id="inventory-value" class="font-bold text-[--primary-color]">2</span>%</label><input id="inventory-slider" type="range" min="0" max="25" value="2" step="1" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer"></div></div><div class="text-center bg-slate-50 p-6 rounded-lg"><h3 class="text-lg font-semibold text-slate-700">Estimated 1-Year ROI</h3><p id="advanced-roi-percentage" class="text-4xl font-bold text-[--primary-color] my-2">717%</p><p class="text-slate-500">with an estimated annual impact of</p><p id="advanced-impact-dollars" class="text-2xl font-bold text-slate-600 mt-1">$147,000</p></div></div></div></section>
+                        <section id="benefits" class="py-12 md:py-20"><div class="container mx-auto px-6 text-center"><h2 class="section-title">Unlock Strategic Advantages</h2><p class="section-subtitle">Beyond just saving time, SDX provides key benefits that ripple across your entire operation, from purchasing to customer service. Explore the advantages below.</p><div class="mt-12 flex flex-wrap justify-center gap-2 md:gap-4"><button class="benefit-tab px-5 py-2.5 font-semibold rounded-lg transition-colors" data-tab="visibility">✅ On-Demand Visibility</button><button class="benefit-tab px-5 py-2.5 font-semibold rounded-lg transition-colors" data-tab="workload">📉 Reduce Manual Workload</button><button class="benefit-tab px-5 py-2.5 font-semibold rounded-lg transition-colors" data-tab="impact">🔗 Supply Chain Impact</button><button class="benefit-tab px-5 py-2.5 font-semibold rounded-lg transition-colors" data-tab="partnerships">🤝 Strengthen Partnerships</button></div><div id="benefit-content-container" class="mt-10 max-w-4xl mx-auto text-left bg-white p-8 rounded-xl shadow-lg min-h-[400px]"></div></div></section>
+                        <section id="contact" class="py-12 md:py-20"><div class="container mx-auto px-6 text-center"><h2 class="section-title">Ready to Revolutionize Your Purchasing?</h2><p class="section-subtitle">Transform your supply chain with effortless, on-demand data. Connect with us to learn how you can get started with Supplier Data Exchange.</p><div class="mt-12 flex flex-col sm:flex-row justify-center items-center gap-6 md:gap-10"><div class="text-lg"><span class="font-bold">Website:</span> <a href="https://www.ahatis.com" target="_blank" class="text-[--primary-color] hover:text-[--primary-color-dark] underline">www.ahatis.com</a></div><div class="text-lg"><span class="font-bold">Email:</span> <a href="mailto:info@ahatis.com" class="text-[--primary-color] hover:text-[--primary-color-dark] underline">info@ahatis.com</a></div><div class="text-lg"><span class="font-bold">Phone:</span> <span class="text-slate-800">925.344.1520</span></div></div></div></section>
+                    </main>
+                `;
+                
+                const PrimaryColor = getComputedStyle(sdxModal).getPropertyValue('--primary-color').trim();
+                const btnOldWay = sdxModal.querySelector('#btn-old-way');
+                const btnAhatisWay = sdxModal.querySelector('#btn-ahatis-way');
+                const comparisonContent = sdxModal.querySelector('#comparison-content');
+                const comparisonData = { old: { title: '👎 The Old Way', items: ['Endless phone calls and email chains', 'Uncertainty and delayed information', 'Manual data entry and tracking', 'Wasted time for both you and your supplier', 'Reactive problem-solving'] }, ahatis: { title: '👍 The ahatis Way', items: ['Instant, on-demand status checks', 'On-demand data directly from the source', 'Automated, seamless data flow', 'Knowing Supply Chain Impact of all Open PO\'s', 'Proactive planning and inventory management'] } };
+                function updateComparisonView(view) { if (view === 'old') { btnOldWay.classList.add('comparison-card-active', 'bg-red-100', 'text-red-800'); btnOldWay.style.borderColor = '#ef4444'; btnOldWay.classList.remove('bg-slate-200'); btnAhatisWay.classList.remove('comparison-card-active', 'bg-red-50'); btnAhatisWay.style.borderColor = 'transparent'; btnAhatisWay.classList.add('bg-slate-200'); comparisonContent.innerHTML = `<div class="bg-white p-6 rounded-lg border-2 border-slate-200 transition-all duration-300"><h3 class="text-xl font-bold text-slate-800 mb-4">${comparisonData.old.title}</h3><ul class="space-y-3 text-left list-none">${comparisonData.old.items.map(item => `<li class="flex items-start"><span class="mr-2 text-red-500">✕</span><span>${item}</span></li>`).join('')}</ul></div><div class="hidden md:block bg-slate-100 p-6 rounded-lg border-2 border-dashed border-slate-300 transition-all duration-300 opacity-50"><h3 class="text-xl font-bold text-slate-500 mb-4">${comparisonData.ahatis.title}</h3><ul class="space-y-3 text-left list-none">${comparisonData.ahatis.items.map(item => `<li class="flex items-start"><span class="mr-2 text-slate-400">✓</span><span>${item}</span></li>`).join('')}</ul></div>`; } else { btnAhatisWay.classList.add('comparison-card-active'); btnAhatisWay.style.borderColor = PrimaryColor; btnAhatisWay.style.backgroundColor = '#fdecec'; btnAhatisWay.style.color = PrimaryColor; btnAhatisWay.classList.remove('bg-slate-200'); btnOldWay.classList.remove('comparison-card-active', 'bg-red-100', 'text-red-800'); btnOldWay.style.borderColor = 'transparent'; btnOldWay.classList.add('bg-slate-200'); comparisonContent.innerHTML = `<div class="hidden md:block bg-slate-100 p-6 rounded-lg border-2 border-dashed border-slate-300 transition-all duration-300 opacity-50"><h3 class="text-xl font-bold text-slate-500 mb-4">${comparisonData.old.title}</h3><ul class="space-y-3 text-left list-none">${comparisonData.old.items.map(item => `<li class="flex items-start"><span class="mr-2 text-slate-400">✕</span><span>${item}</span></li>`).join('')}</ul></div><div class="bg-white p-6 rounded-lg border-2 border-slate-200 transition-all duration-300"><h3 class="text-xl font-bold text-slate-800 mb-4">${comparisonData.ahatis.title}</h3><ul class="space-y-3 text-left list-none">${comparisonData.ahatis.items.map(item => `<li class="flex items-start"><span class="mr-2" style="color:${PrimaryColor};">✓</span><span>${item}</span></li>`).join('')}</ul></div>`; } }
+                btnOldWay.addEventListener('click', () => updateComparisonView('old'));
+                btnAhatisWay.addEventListener('click', () => updateComparisonView('ahatis'));
+                updateComparisonView('ahatis');
+                const benefitTabs = sdxModal.querySelectorAll('.benefit-tab');
+                const benefitContainer = sdxModal.querySelector('#benefit-content-container');
+                let workloadChart = null;
+                const benefitsData = { visibility: { icon: '✅', title: 'On-Demand Visibility', description: "Know the exact status of your orders, 24/7. Get instant access to the information you need, when you need it, directly from the source system.", }, workload: { icon: '📉', title: 'Reduce Manual Workload', description: "Eliminate countless follow-up calls and emails. By automating status updates, your purchasing team is freed up to focus on strategic tasks like sourcing, negotiation, and relationship building instead of tedious administrative work.", chart: true }, impact: { icon: '🔗', title: 'Understand Supply Chain Impact', description: "Instantly understand the downstream impact of any change to a purchase order. When a supplier updates a delivery date, you can immediately see which customer orders are affected, allowing you to proactively manage expectations and protect customer relationships.", }, partnerships: { icon: '🤝', title: 'Strengthen Supplier Partnerships', description: "Build a more transparent, efficient, and collaborative relationship with your suppliers. Reducing communication friction benefits both sides and paves the way for a stronger, more strategic partnership.", } };
+                function updateBenefitContent(tabKey) { benefitTabs.forEach(t => { t.classList.remove('tab-active'); t.classList.add('tab-inactive'); }); const activeTab = sdxModal.querySelector(`.benefit-tab[data-tab="${tabKey}"]`); activeTab.classList.add('tab-active'); activeTab.classList.remove('tab-inactive'); const data = benefitsData[tabKey]; let imageHTML = ''; if (data.images) { imageHTML = `<div class="mt-6 space-y-4">` + data.images.map(img => `<div class="text-center"><h4 class="font-semibold text-slate-700 mb-2">${img.title}</h4><img src="${img.src}" alt="${img.alt}" class="w-full h-auto rounded-lg shadow-md border border-slate-200"></div>`).join('') + `</div>`; } let contentHTML = `<div class="flex flex-col gap-8"><div class="w-full"><h3 class="text-2xl font-bold text-slate-800 mb-4">${data.icon} ${data.title}</h3><p class="text-slate-600 leading-relaxed">${data.description}</p></div><div class="w-full flex items-center justify-center">${data.chart ? '<div class="chart-container" style="position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 300px;"><canvas id="workload-chart"></canvas></div>' : (data.images ? imageHTML : '<div class="text-8xl opacity-20">'+data.icon+'</div>')}</div></div>`; benefitContainer.innerHTML = contentHTML; if (data.chart) { const ctx = sdxModal.querySelector('#workload-chart').getContext('2d'); if(workloadChart) { workloadChart.destroy(); } workloadChart = new Chart(ctx, { type: 'bar', data: { labels: ['The Old Way', 'The ahatis Way'], datasets: [{ label: 'Time Spent on Manual Follow-up', data: [100, 10], backgroundColor: ['#ef4444', PrimaryColor], borderColor: ['#dc2626', PrimaryColor], borderWidth: 1 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, title: { display: true, text: 'Manual Effort Comparison' } }, scales: { y: { beginAtZero: true, ticks: { callback: value => value + '%' } } } } }); } }
+                benefitTabs.forEach(tab => { tab.addEventListener('click', () => updateBenefitContent(tab.dataset.tab)); });
+                updateBenefitContent('visibility');
+                const poSlider = sdxModal.querySelector('#po-slider'); const timeSlider = sdxModal.querySelector('#time-slider'); const setupTimeSlider = sdxModal.querySelector('#setup-time-slider'); const wageSlider = sdxModal.querySelector('#wage-slider'); const poValue = sdxModal.querySelector('#po-value'); const timeValue = sdxModal.querySelector('#time-value'); const setupTimeValue = sdxModal.querySelector('#setup-time-value'); const wageValue = sdxModal.querySelector('#wage-value'); const timeSavedEl = sdxModal.querySelector('#time-saved'); const costSavedEl = sdxModal.querySelector('#cost-saved');
+                function calculateStandardROI() { const pos = parseInt(poSlider.value); const time = parseInt(timeSlider.value); const setupTime = parseInt(setupTimeSlider.value); const wage = parseInt(wageSlider.value); poValue.textContent = pos; timeValue.textContent = time; setupTimeValue.textContent = setupTime; wageValue.textContent = wage; const totalMinutesSaved = (time + setupTime) * pos * 4.33; const totalHoursSaved = totalMinutesSaved / 60; const totalCostSaved = totalHoursSaved * wage; const annualHours = totalHoursSaved * 12; const annualCost = totalCostSaved * 12; timeSavedEl.textContent = `${annualHours.toFixed(1)} Hours`; costSavedEl.textContent = `$${Math.round(annualCost).toLocaleString('en-US')}`; }
+                [poSlider, timeSlider, wageSlider, setupTimeSlider].forEach(slider => { slider.addEventListener('input', calculateStandardROI); });
+                calculateStandardROI();
+                const fillRateSlider = sdxModal.querySelector('#fill-rate-slider'); const inventorySlider = sdxModal.querySelector('#inventory-slider'); const fillRateValue = sdxModal.querySelector('#fill-rate-value'); const inventoryValue = sdxModal.querySelector('#inventory-value'); const advancedRoiPercentageEl = sdxModal.querySelector('#advanced-roi-percentage'); const advancedImpactDollarsEl = sdxModal.querySelector('#advanced-impact-dollars');
+                function calculateAdvancedROI() { const fillRate = parseFloat(fillRateSlider.value); const inventory = parseFloat(inventorySlider.value); const investmentCost = 18000; fillRateValue.textContent = fillRate.toFixed(1); inventoryValue.textContent = inventory.toFixed(0); const fillRateImpact = fillRate * 1500; const inventoryImpact = inventory * 5000; const totalAnnualImpact = (fillRateImpact + inventoryImpact) * 12; const roiPercentage = ((totalAnnualImpact - investmentCost) / investmentCost) * 100; advancedRoiPercentageEl.textContent = `${Math.round(roiPercentage)}%`; advancedImpactDollarsEl.textContent = `$${Math.round(totalAnnualImpact).toLocaleString('en-US')}`; }
+                [fillRateSlider, inventorySlider].forEach(slider => { slider.addEventListener('input', calculateAdvancedROI); });
+                calculateAdvancedROI();
+
+                isSdxInitialized = true;
+            }
+
+        });
+    </script>
+
+</body>
+</html>
+

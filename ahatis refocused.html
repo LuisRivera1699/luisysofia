@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ahatis Redefined: A New Focus on Data, AI, and SaaS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* A very light gray, similar to ahatis.com */
+        }
+        /* Primary colors inspired by ahatis.com's blue and dark tones */
+        .ahatis-blue { color: #00529B; }
+        .bg-ahatis-blue { background-color: #00529B; }
+        .border-ahatis-blue { border-color: #00529B; }
+        .ahatis-dark { color: #1e293b; }
+        .bg-ahatis-dark { background-color: #1e293b; }
+        .ahatis-dark-blue { color: #003d73; }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #00529B, #0077CC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        /* AI Chat Styles */
+        #ai-chat-modal {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background-color: #94a3b8;
+            border-radius: 50%;
+            display: inline-block;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+        /* Additional styling for smooth scrolling */
+        :target {
+            scroll-margin-top: 100px;
+        }
+        .prose ul {
+            list-style-position: outside;
+            padding-left: 1.25rem;
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold ahatis-dark">ahatis</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#new-focus" class="text-slate-600 hover:text-ahatis-blue transition-colors text-center leading-tight">Our<br>Value</a>
+                <a href="#key-business-areas" class="text-slate-600 hover:text-ahatis-blue transition-colors text-center leading-tight">Key Business<br>Areas</a>
+                <a href="#capabilities-overview" class="text-slate-600 hover:text-ahatis-blue transition-colors text-center leading-tight">Technical<br>Capabilities</a>
+                <a href="#ai-use-cases" class="text-slate-600 hover:text-ahatis-blue transition-colors text-center leading-tight">AI<br>Capabilities</a>
+                <a href="#leadership" class="text-slate-600 hover:text-ahatis-blue transition-colors">Leadership</a>
+                <a href="#next-steps" class="text-slate-600 hover:text-ahatis-blue transition-colors text-center leading-tight">Next<br>Steps</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-slate-600 hover:text-ahatis-blue">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
+            <a href="#new-focus" class="block py-3 px-6 text-slate-600 hover:bg-slate-50">Our Value</a>
+            <a href="#key-business-areas" class="block py-3 px-6 text-slate-600 hover:bg-slate-50">Key Business Areas</a>
+            <a href="#capabilities-overview" class="block py-3 px-6 text-slate-600 hover:bg-slate-50">Technical Capabilities</a>
+            <a href="#ai-use-cases" class="block py-3 px-6 text-slate-600 hover:bg-slate-50">AI Capabilities</a>
+            <a href="#leadership" class="block py-3 px-6 text-slate-600 hover:bg-slate-50">Leadership</a>
+            <a href="#next-steps" class="block py-3 px-6 text-slate-600 hover:bg-slate-50">Next Steps</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-white">
+            <div class="container mx-auto px-6 py-20 md:py-32 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-base font-semibold uppercase tracking-wider ahatis-blue fade-in-up">An Evolution in Expertise</p>
+                    <h1 class="text-4xl md:text-6xl font-bold ahatis-dark mt-4 fade-in-up" style="animation-delay: 0.2s;">
+                        The Future of ahatis is <span class="gradient-text">Focused</span>.
+                    </h1>
+                    <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto fade-in-up" style="animation-delay: 0.4s;">
+                        Setting our target to deliver unparalleled value where it matters most.<BR> Committed to focusing our current and future expertise on<BR> <b>Business Transforming Initiatives</b> 
+                        that leverage Data Modernization, Ethical and Efficient AI, and SaaS Rationalization.  
+                    </p>
+                    <div class="mt-10 fade-in-up" style="animation-delay: 0.6s;">
+                        <a href="#new-focus" class="bg-ahatis-blue text-white font-semibold px-8 py-3 rounded-lg text-lg hover:opacity-90 transition-opacity">
+                            Discover Our Focus
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Capabilities Section -->
+        <section id="capabilities-overview" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                     <h2 class="text-3xl md:text-4xl font-bold ahatis-dark">Technical Capabilities at a Glance</h2>
+                     <p class="mt-4 text-lg text-slate-600">A detailed look at the services we provide across our core focus areas.</p>
+                </div>
+
+                <div class="mt-16 max-w-4xl mx-auto space-y-8">
+                    <!-- Row 1: Modernized Data Architecture -->
+                    <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-ahatis-blue/10 text-ahatis-blue rounded-lg w-14 h-14 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="database-zap" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold ahatis-dark ml-6">Modernized Data Architecture</h3>
+                        </div>
+                        <p class="mb-6 text-slate-600">We help you define the right architecture for all relevant data, internal and external using modern architectures. Unlock the full potential of your data for quicker/actionable insights, alerts, advanced analytics and AI.</p>
+                        <ul class="space-y-4 text-slate-700 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Data Migration & Integration</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>External Data Management</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Modern Architecture Design</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Cloud Cost Rationalization</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>DevOps & DataOps Integration</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Row 2: Ethical & Efficient AI -->
+                    <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-ahatis-blue/10 text-ahatis-blue rounded-lg w-14 h-14 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="brain-circuit" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold ahatis-dark ml-6">Ethical & Efficient AI</h3>
+                        </div>
+                        <p class="mb-6 text-slate-600">We guide you in the responsible and effective implementation of AI, developing relevant frameworks and transparent models that drive measurable business value.</p>
+                        <ul class="space-y-4 text-slate-700 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>AI Strategy & Roadmapping</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Custom Model Development</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Ethical AI Frameworks & Governance</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Generative AI Solutions</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Model Transparency & Explainability</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Row 3: SaaS Rationalization -->
+                    <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-ahatis-blue/10 text-ahatis-blue rounded-lg w-14 h-14 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="layers-3" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold ahatis-dark ml-6">SaaS Rationalization</h3>
+                        </div>
+                        <p class="mb-6 text-slate-600">We help you optimize your SaaS portfolio by eliminating unnecessary and/or redundant data, cutting costs, and ensuring every software investment is strategically sound.</p>
+                        <ul class="space-y-4 text-slate-700 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>SaaS Portfolio Assessment</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Redundancy & Overlap Analysis</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Cost Optimization & Negotiation</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Seamless Capability Transition</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Security & Compliance Audits</span></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Row 4: SAP Migrations -->
+                    <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-ahatis-blue/10 text-ahatis-blue rounded-lg w-14 h-14 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="replace" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold ahatis-dark ml-6">SAP Migrations</h3>
+                        </div>
+                        <p class="mb-6 text-slate-600">Navigate the complexities of SAP modernization with confidence. We provide end-to-end management for migrating to S/4HANA or cloud environments, ensuring data integrity, minimizing downtime, and aligning the new system with your strategic goals.</p>
+                        <ul class="space-y-4 text-slate-700 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Master Data Conversion</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>COA Rationalization</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>AR/AP Conversions</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Key Document Type Configuration</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Analytics</span></li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-5 h-5 text-ahatis-blue mr-3 mt-1 flex-shrink-0"></i><span>Security</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Value Section -->
+        <section id="new-focus" class="py-20 md:py-28 bg-slate-50">
+            <div class="container mx-auto px-6 max-w-screen-xl">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold ahatis-dark">Our Value</h2>
+                    <p class="mt-4 text-lg text-slate-600">
+                        Our approach is highly collaborative, you have a deep understanding of your business
+                        and industry.  We have a proven track record of delivering business results through
+                        the modern use of data and technology.  This business first focus gives us an unfair advantage
+                        over our competition.    
+                    </p>
+                </div>
+
+                <div id="key-business-areas" class="mt-20">
+                    <h3 class="text-2xl md:text-3xl font-bold ahatis-dark text-center">Solutions for Key Business Areas</h3>
+                    <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white text-ahatis-blue rounded-full w-20 h-20 flex items-center justify-center shadow-md">
+                                <i data-lucide="target" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="mt-4 font-semibold text-ahatis-dark">Sales Planning</h4>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white text-ahatis-blue rounded-full w-20 h-20 flex items-center justify-center shadow-md">
+                                <i data-lucide="trending-up" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="mt-4 font-semibold text-ahatis-dark">Trade Promotion Management</h4>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white text-ahatis-blue rounded-full w-20 h-20 flex items-center justify-center shadow-md">
+                                <i data-lucide="line-chart" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="mt-4 font-semibold text-ahatis-dark">Demand Planning</h4>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white text-ahatis-blue rounded-full w-20 h-20 flex items-center justify-center shadow-md">
+                                <i data-lucide="boxes" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="mt-4 font-semibold text-ahatis-dark">Inventory Management</h4>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white text-ahatis-blue rounded-full w-20 h-20 flex items-center justify-center shadow-md">
+                                <i data-lucide="clipboard-list" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="mt-4 font-semibold text-ahatis-dark">Production Planning</h4>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white text-ahatis-blue rounded-full w-20 h-20 flex items-center justify-center shadow-md">
+                                <i data-lucide="factory" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="mt-4 font-semibold text-ahatis-dark">Manufacturing Resource Planning</h4>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white text-ahatis-blue rounded-full w-20 h-20 flex items-center justify-center shadow-md">
+                                <i data-lucide="beaker" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="mt-4 font-semibold text-ahatis-dark">Test Automation</h4>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white text-ahatis-blue rounded-full w-20 h-20 flex items-center justify-center shadow-md">
+                                <i data-lucide="tablet-smartphone" class="w-10 h-10"></i>
+                            </div>
+                            <h4 class="mt-4 font-semibold text-ahatis-dark">Interactive Digital Solutions</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- AI Use Cases Section -->
+        <section id="ai-use-cases" class="py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold ahatis-dark">Solving Business Challenges with Practical AI</h2>
+                    <p class="mt-4 text-lg text-slate-600">
+                        Our approach to AI is grounded in practicality. We focus on implementing targeted AI solutions that solve specific, high-value business problems, turning complex data into automated processes and actionable strategies.
+                    </p>
+                </div>
+                <div id="use-cases-grid" class="mt-16 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <button class="use-case-card text-left bg-white p-6 rounded-lg shadow-md border border-slate-200 hover:border-ahatis-blue hover:shadow-lg transition-all" 
+                        data-title="Partner Collaboration" 
+                        data-quote="No Follow-up Meetings" 
+                        data-image="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop"
+                        data-summary="In collaborative business planning, progress often stalls. Key questions arise during meetings, but the data models required to answer them are complex and offline. This leads to a cycle of 'we'll get back to you,' delaying critical decisions."
+                        data-content-id="partner-collaboration-content">
+                        <h4 class="text-lg font-semibold text-ahatis-dark">Partner Collaboration</h4>
+                        <p class="text-sm italic ahatis-dark-blue mt-1">"No Follow-up Meetings"</p>
+                    </button>
+                    <button class="use-case-card text-left bg-white p-6 rounded-lg shadow-md border border-slate-200 hover:border-ahatis-blue hover:shadow-lg transition-all" 
+                        data-title="Preventative Maintenance" 
+                        data-quote="Cost of a Silent Rig" 
+                        data-image="https://images.unsplash.com/photo-1581092916376-2993625e1823?q=80&w=2070&auto=format&fit=crop"
+                        data-summary="Unplanned downtime is one of the biggest hidden costs in industrial operations. A single component failure can bring an entire production line to a halt. Traditional maintenance schedules are often based on simple timelines, not the actual condition of the equipment."
+                        data-content-id="preventative-maintenance-content">
+                        <h4 class="text-lg font-semibold text-ahatis-dark">Preventative Maintenance</h4>
+                        <p class="text-sm italic ahatis-dark-blue mt-1">"Cost of a Silent Rig"</p>
+                    </button>
+                    <button class="use-case-card text-left bg-white p-6 rounded-lg shadow-md border border-slate-200 hover:border-ahatis-blue hover:shadow-lg transition-all" 
+                        data-title="Insurance Claims Process" 
+                        data-quote="Faster, More Accurate Settlements" 
+                        data-image="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?q=80&w=2070&auto=format&fit=crop"
+                        data-summary="Across the insurance industry, a critical challenge persists. The original settlement amount often under-represents what the customer is authorized, leading to long cycle times and administrative back-and-forth to correct submissions."
+                        data-content-id="insurance-claims-content">
+                        <h4 class="text-lg font-semibold text-ahatis-dark">Insurance Claims Process</h4>
+                        <p class="text-sm italic ahatis-dark-blue mt-1">"Faster, More Accurate Settlements"</p>
+                    </button>
+                    <button class="use-case-card text-left bg-white p-6 rounded-lg shadow-md border border-slate-200 hover:border-ahatis-blue hover:shadow-lg transition-all" 
+                        data-title="Customer Growth Management" 
+                        data-quote="Be a Partner, Not a Part" 
+                        data-image="https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=2070&auto=format&fit=crop"
+                        data-summary="Even your best sales teams have a blind spot: they don't know what products their existing customers are buying from competitors. Relying on intuition to find cross-sell and upsell opportunities is inefficient and leaves significant revenue on the table."
+                        data-content-id="customer-growth-content">
+                        <h4 class="text-lg font-semibold text-ahatis-dark">Customer Growth Management</h4>
+                        <p class="text-sm italic ahatis-dark-blue mt-1">"Be a Partner, Not a Part"</p>
+                    </button>
+                </div>
+                 <p class="text-center mt-8 text-slate-600">...and more.</p>
+            </div>
+        </section>
+
+        <!-- Leadership Section -->
+        <section id="leadership" class="py-20 md:py-28 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold ahatis-dark">Leadership & Key Partners</h2>
+                    <p class="mt-4 text-lg text-slate-600">
+                        Our strategic evolution is guided by seasoned industry leaders and strengthened by partnerships with innovators at the forefront of technology.
+                    </p>
+                </div>
+                <div class="mt-16 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold ahatis-dark">Accion Labs</h3>
+                        <p class="mt-2 text-slate-600">Build purpose-fit, cutting-edge products and solutions around advanced data/analytics.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold ahatis-dark">Celebal Technology</h3>
+                        <p class="mt-2 text-slate-600">Premier Databricks, Azure, and SAP Implementation Partner.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold ahatis-dark">Clapself</h3>
+                        <p class="mt-2 text-slate-600">AI Centric Staffing company (staff augmentation or direct).</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold ahatis-dark">Impact QA</h3>
+                        <p class="mt-2 text-slate-600">Test Automation (SAP Focus) with Energy Commodity Trading Solution.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold ahatis-dark">Wisdom AI</h3>
+                        <p class="mt-2 text-slate-600">Personal Data Analyst for business users.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-200">
+                        <h3 class="text-xl font-bold ahatis-dark">OpenInfer</h3>
+                        <p class="mt-2 text-slate-600">Innovative AI platform with offline AI capabilities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Why the Change Section -->
+        <section class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold ahatis-dark">Why This Evolution?</h2>
+                        <p class="mt-4 text-lg text-slate-600">
+                            The market is evolving at an unprecedented pace. The demand for deep, specialized expertise in data, AI, and SaaS Rationalization has never been greater.
+                        </p>
+                        <p class="mt-4 text-slate-600">
+                            This strategic shift allows us to concentrate our expertise where it delivers the most significant and lasting impact. We're not just keeping pace with change; we're helping our clients lead it. This is a move from generalist to specialist, ensuring we provide the deepest knowledge and most innovative solutions in our chosen fields.
+                        </p>
+                         <p class="mt-4 text-slate-600 font-semibold">
+                            For our existing clients, we are committed to a seamless transition and will continue to provide the same dedication and excellence you've come to expect from us.
+                        </p>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="https://images.unsplash.com/photo-1535378620166-273708d44e4c?q=80&w=1935&auto=format&fit=crop" alt="Abstract image representing forward-thinking strategy" class="rounded-lg shadow-xl" onerror="this.onerror=null;this.src='https://placehold.co/500x400/00529B/FFFFFF?text=Future-Focused';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="next-steps" class="bg-slate-100 py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold ahatis-dark">Let's Build the Future, Together.</h2>
+                    <p class="mt-4 text-lg text-slate-600">
+                        Ready to harness the power of a Modern Data Architecture, Ethical and Efficient AI, or Rationalize your SaaS Solutions? Let's talk about how our new focus can accelerate your success.
+                    </p>
+                    <div class="mt-8">
+                        <a href="https://www.ahatis.com/contact" class="bg-ahatis-blue text-white font-semibold px-8 py-3 rounded-lg text-lg hover:opacity-90 transition-opacity">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-ahatis-dark text-slate-300">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 ahatis. All Rights Reserved.</p>
+            <div class="mt-2 space-x-4">
+                 <a href="mailto:info@ahatis.com" class="hover:text-white transition-colors">info@ahatis.com</a>
+                 <span>&middot;</span>
+                 <span>Danville, CA</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Use Case Modal -->
+    <div id="use-case-modal" class="modal fixed inset-0 z-[60] flex items-center justify-center bg-black bg-opacity-50 opacity-0 pointer-events-none overflow-y-auto p-4">
+        <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-3xl m-4 relative transform scale-95 transition-transform duration-300">
+            <button id="close-modal" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800 z-10">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <img id="modal-image" src="" alt="Use Case Image" class="w-full h-64 object-cover rounded-t-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image';">
+            <div id="modal-body" class="p-8">
+                <h3 id="modal-title" class="text-2xl font-bold ahatis-dark"></h3>
+                <p id="modal-quote" class="mt-2 text-lg italic text-ahatis-blue"></p>
+                <div id="modal-description" class="mt-4 text-slate-600 prose"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hidden Use Case Content -->
+    <div id="use-case-full-content" class="hidden">
+        <div id="partner-collaboration-content">
+            <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">The Challenge: Inefficient Planning Cycles and Delayed Decisions</h4>
+            <p class="mb-4">In collaborative business planning, progress often stalls. Key questions arise during meetings with partners, but the data models required to answer them are complex and offline. This leads to a cycle of "we'll get back to you," followed by days or weeks of follow-up meetings, delaying critical decisions on promotions, inventory, and revenue plans.</p>
+            <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">The Solution: Deploying a "Real-Time Collaboration" Model</h4>
+            <p class="mb-4">ahatis builds a custom AI model that integrates directly into your planning systems. This powerful tool allows your team to run sophisticated 'what-if' scenarios live during meetings. Instantly model the financial and logistical impact of different strategies, turning week-long analytical tasks into real-time, data-driven conversations.</p>
+            <p class="mb-4">To ensure these capabilities are available in any environment, ahatis has partnered with a leading AI firm, OpenInfer, to build this solution to function without an internet connection. Your team will have these AI capabilities at their fingertips, whether they are in a corporate boardroom or a remote partner office.</p>
+            <p class="mb-4">We manage the entire custom build and, upon completion, provide comprehensive training and documentation for a smooth transition to your internal team, allowing you to own and operate the model to reduce its total cost of ownership (TCO). Alternatively, ahatis can provide ongoing maintenance.</p>
+            <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">Targeted Outcomes: The Value Proposition</h4>
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>50-60% Target Reduction in Decision Cycle Time:</strong> Eliminate follow-up meetings by answering complex questions on the spot.</li>
+                <li><strong>15-25% Target Improvement in Joint Plan Accuracy:</strong> Base your collaborative plans on robust data models, not assumptions.</li>
+                <li><strong>Strengthened Partner Relationships:</strong> Impress partners with your ability to provide instant, data-backed answers, fostering trust and collaboration.</li>
+                <li><strong>Immediate, Data-Driven Alignment:</strong> Ensure both parties leave meetings with a clear, mutually agreed-upon plan.</li>
+            </ul>
+        </div>
+        <div id="preventative-maintenance-content">
+            <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">The Challenge: From Reactive Repairs to Proactive Uptime</h4>
+            <p class="mb-4">Unplanned downtime is one of the biggest hidden costs in industrial operations. A single component failure can bring an entire production line or oil rig to a halt. Traditional maintenance schedules are often based on simple timelines, not the actual condition of the equipment, leading to either premature replacement of healthy parts or catastrophic failures that could have been predicted.</p>
+            <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">The Solution: Deploying a "Predictive Uptime" Model</h4>
+            <p class="mb-4">ahatis builds a custom AI model that ingests data from equipment sensors, maintenance logs, and environmental factors to move beyond simple failure prediction. The model identifies not just <em>individual</em> parts at risk, but entire <em>component clusters</em> that are statistically likely to fail in the same window. This allows your maintenance teams to bundle repairs, replacing all at-risk components during a single, planned downtime event.</p>
+            <p class="mb-4">Recognizing that many critical assets operate in remote locations, ahatis has partnered with a leading AI firm, OpenInfer, to build this solution to function without an internet connection, ensuring these predictive capabilities are always available.</p>
+            <p class="mb-4">We manage the entire custom build and, upon completion, provide comprehensive training and documentation for a smooth transition to your internal team, allowing you to own and operate the model to reduce its total cost of ownership (TCO). Alternatively, ahatis can provide ongoing maintenance.</p>
+            <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">Targeted Outcomes: The Value Proposition</h4>
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>20-30% Target Reduction in Unplanned Downtime:</strong> Proactively address potential failures before they bring operations to a halt.</li>
+                <li><strong>10-15% Target Reduction in Maintenance Costs:</strong> Optimize maintenance schedules and reduce emergency repair expenditures.</li>
+                <li><strong>Increased Asset Lifespan:</strong> Make smarter decisions about component replacement to get the most out of your equipment.</li>
+                <li><strong>Optimized Maintenance Scheduling:</strong> Group repairs intelligently to minimize the frequency and duration of scheduled downtime.</li>
+            </ul>
+        </div>
+        <div id="insurance-claims-content">
+            <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">The Industry Challenge: Disconnected Settlement Amounts on Claims</h4>
+            <p class="mb-4">Across the insurance industry, a critical challenge persists. The original settlement amount often under-represents what the customer is authorized. A common finding is that average claim cycle times can extend to 28 days or more, with a significant portion of that time—often over 60%—spent on administrative back-and-forth to correct incomplete or inaccurate initial submissions. Because of these inaccuracies the customer (aka home owner) often is impatient of uniformed of the appraisal process which can get them the settlement they rightfully deserve.</p>
+            <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">The Solution: A Proactive Partnership for "Intelligent Intake"</h4>
+            <p class="mb-4">Recognizing this market need, the joint team of ahatis and MCA (My Claims Appraisal) are co-creating a bespoke AI-driven platform called "Intelligent Intake." This solution, which combines leading edge AI and data architecture expertise with MCA's deep industry knowledge, is being built to integrate seamlessly into the existing appraisal process. The system is designed to act as an intelligent co-pilot for policyholders and contractors, validating information in real-time to ensure every appraisal is 100% complete and accurate before it ever reaches the final award.</p>
+            <p class="mb-4">This proactive development will provide a market-ready solution that can be customized and deployed for home owners and contractors, enabling them to rapidly modernize their claims process.</p>
+            <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">Targeted Outcomes: The Value Proposition</h4>
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>50% Target Reduction in Cycle Time:</strong> The platform's goal is to reduce the average appraisal settlement time from 60 days to just 30 days.</li>
+                <li><strong>35% Target Decrease in Administrative Costs:</strong> The automation of the appraisal process is projected to significantly reduce the human hours required per appraisal.</li>
+                <li><strong>40% Target Improvement in Settlement Amount:</strong> The technology enabled appraisal process is designed to provide the fairest settlement in the industry.</li>
+                <li><strong>Straight-Through Processing:</strong> The platform aims to enable over 80% of property appraisal steps to be processed automatically, without the need for extensive human interaction.</li>
+            </ul>
+        </div>
+        <div id="customer-growth-content">
+             <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">The Challenge: Unrealized Revenue in Your Customer Base</h4>
+            <p class="mb-4">Even your best sales teams have a blind spot: they don't know what products their existing customers are buying from competitors. Relying on intuition or manual analysis to find cross-sell and upsell opportunities is inefficient and leaves significant revenue on the table. To truly grow, you need to transition from a reactive supplier to a proactive partner who anticipates customer needs and ensures they are using the best solutions available.</p>
+            <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">The Solution: Deploying a "Wallet Share Expansion" Model</h4>
+            <p class="mb-4">ahatis collaborates with your sales and data teams to build a powerful AI model that uncovers these hidden opportunities. By analyzing your customer's purchasing history, industry data, and firmographic profiles, the model identifies high-probability "wallet share" gaps.</p>
+            <p class="mb-4">To ensure these powerful capabilities are always available, ahatis has partnered with a leading AI firm, OpenInfer, to build this solution without dependency on an internet connection. Regardless of how remote the customer is, the sales rep will have these AI capabilities at their fingertips, ensuring data-driven insights are always accessible.</p>
+            <p class="mb-4">We oversee the entire custom build, ensuring the model aligns with your business goals. Upon completion, we provide comprehensive training and documentation to enable a smooth transition to your internal team, allowing you to own and operate the model to further reduce the total cost of ownership (TCO). Alternatively, ahatis can provide ongoing performance monitoring and maintenance through a flexible service package.</p>
+            <h4 class="text-lg font-semibold ahatis-dark mt-4 mb-2">Targeted Outcomes: The Value Proposition</h4>
+            <ul class="list-disc list-inside space-y-2">
+                <li><strong>15-25% Target Increase in Cross-Sell Success Rate:</strong> Equip your sales team with data-driven insights that lead to more effective conversations.</li>
+                <li><strong>10-20% Target Increase in Revenue from Existing Accounts:</strong> Unlock the untapped potential within the customers who already trust you through targeted cross-selling and strategic upgrades.</li>
+                <li><strong>Enhanced Product Adoption & Retention:</strong> Ensure customers are using the latest, most effective versions of your products, increasing satisfaction and loyalty.</li>
+                <li><strong>Actionable Growth Plans:</strong> Automatically generate the top growth opportunities for each account—from adjacent products to formula upgrades—turning data into strategy.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- AI Chat Components -->
+    <button id="ai-chat-fab" class="fixed bottom-6 right-6 bg-ahatis-blue text-white rounded-full p-4 shadow-lg hover:scale-110 transition-transform z-50">
+        <i data-lucide="sparkles" class="w-8 h-8"></i>
+    </button>
+
+    <div id="ai-chat-modal" class="fixed bottom-24 right-6 w-full max-w-md bg-white rounded-xl shadow-2xl border border-slate-200 opacity-0 transform translate-y-4 pointer-events-none z-50">
+        <div class="flex items-center justify-between p-4 border-b border-slate-200">
+            <h3 class="text-lg font-bold ahatis-dark flex items-center">
+                <i data-lucide="sparkles" class="w-5 h-5 text-ahatis-blue mr-2"></i>
+                Ask ahatis AI
+            </h3>
+            <button id="ai-chat-close" class="text-slate-500 hover:text-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+        <div id="ai-chat-history" class="p-4 h-96 overflow-y-auto space-y-4">
+            <!-- Chat messages will be appended here -->
+        </div>
+        <div id="ai-chat-prompts" class="p-4 border-t border-slate-200">
+            <p class="text-sm font-semibold text-slate-600 mb-2">Or, start with a suggestion:</p>
+            <div class="flex flex-wrap gap-2">
+                <button class="prompt-btn text-sm bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1 rounded-full">How can AI help my retail business?</button>
+                <button class="prompt-btn text-sm bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1 rounded-full">Explain SaaS Rationalization.</button>
+                <button class="prompt-btn text-sm bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1 rounded-full">What is Data Architecture?</button>
+            </div>
+        </div>
+        <div class="p-4 border-t border-slate-200">
+            <form id="ai-chat-form" class="flex items-center gap-2">
+                <input type="text" id="ai-chat-input" placeholder="Ask a question..." class="flex-grow w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-ahatis-blue focus:outline-none">
+                <button type="submit" class="bg-ahatis-blue text-white rounded-lg p-2 hover:opacity-90 transition-opacity">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', () => {
+             // Mobile Menu Logic
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+
+            // Use Case Modal Logic
+            const modal = document.getElementById('use-case-modal');
+            const modalBody = document.getElementById('modal-body');
+            const closeModalBtn = document.getElementById('close-modal');
+            const useCaseCards = document.querySelectorAll('.use-case-card');
+            const modalTitle = document.getElementById('modal-title');
+            const modalQuote = document.getElementById('modal-quote');
+            const modalDescription = document.getElementById('modal-description');
+            const modalImage = document.getElementById('modal-image');
+
+            const openModal = (title, quote, image, summary, contentId) => {
+                modalTitle.textContent = title;
+                modalQuote.textContent = `"${quote}"`;
+                modalImage.src = image;
+                modalImage.alt = title;
+
+                const summaryHtml = `
+                    <p>${summary}</p>
+                    <button class="mt-4 font-semibold text-ahatis-blue hover:underline read-full-details-btn" data-content-id="${contentId}">
+                        Read Full Details...
+                    </button>
+                `;
+                modalDescription.innerHTML = summaryHtml;
+                
+                document.body.style.overflow = 'hidden';
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                document.getElementById('modal-content').classList.remove('scale-95');
+            };
+
+            const closeModal = () => {
+                document.getElementById('modal-content').classList.add('scale-95');
+                modal.classList.add('opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('pointer-events-none');
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            };
+
+            useCaseCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const { title, quote, image, summary, contentId } = card.dataset;
+                    openModal(title, quote, image, summary, contentId);
+                });
+            });
+            
+            modalDescription.addEventListener('click', (e) => {
+                if (e.target && e.target.classList.contains('read-full-details-btn')) {
+                    const contentId = e.target.dataset.contentId;
+                    const contentElement = document.getElementById(contentId);
+                    if (contentElement) {
+                        e.target.parentElement.innerHTML = contentElement.innerHTML;
+                    }
+                }
+            });
+
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+
+            // AI Chat Logic - Powered by Gemini
+            const chatFab = document.getElementById('ai-chat-fab');
+            const chatModal = document.getElementById('ai-chat-modal');
+            const closeChatBtn = document.getElementById('ai-chat-close');
+            const chatHistory = document.getElementById('ai-chat-history');
+            const chatForm = document.getElementById('ai-chat-form');
+            const chatInput = document.getElementById('ai-chat-input');
+            const promptButtons = document.querySelectorAll('.prompt-btn');
+            const chatPromptsContainer = document.getElementById('ai-chat-prompts');
+
+            const toggleChat = () => {
+                chatModal.classList.toggle('opacity-0');
+                chatModal.classList.toggle('translate-y-4');
+                chatModal.classList.toggle('pointer-events-none');
+                if (!chatModal.classList.contains('opacity-0')) {
+                   if(chatHistory.childElementCount === 0) addAiMessage("Hello! I'm the ahatis AI assistant. How can I help you learn about our new focus on Data Modernization, AI, or SaaS Rationalization?");
+                }
+            };
+
+            chatFab.addEventListener('click', toggleChat);
+            closeChatBtn.addEventListener('click', toggleChat);
+
+            const addMessage = (message, sender) => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
+                messageDiv.innerHTML = `
+                    <div class="max-w-xs md:max-w-sm p-3 rounded-2xl ${sender === 'user' ? 'bg-ahatis-blue text-white' : 'bg-slate-100 text-slate-800'}">
+                        ${message}
+                    </div>
+                `;
+                chatHistory.appendChild(messageDiv);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            };
+            
+            const addAiMessage = (message) => addMessage(message, 'ai');
+            const addUserMessage = (message) => addMessage(message, 'user');
+            
+            const showTypingIndicator = () => {
+                const typingDiv = document.createElement('div');
+                typingDiv.id = 'typing-indicator';
+                typingDiv.className = 'flex justify-start';
+                typingDiv.innerHTML = `
+                    <div class="max-w-xs md:max-w-sm p-3 rounded-2xl bg-slate-100">
+                        <div class="typing-indicator">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                `;
+                chatHistory.appendChild(typingDiv);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            };
+
+            const removeTypingIndicator = () => {
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) indicator.remove();
+            };
+
+            const systemPrompt = `You are an expert consultant and AI assistant for ahatis, a technology advisory firm. Your tone is professional, helpful, and concise. ahatis has just evolved its focus to three core areas: 1. Modernized Data Architecture (helping clients define modern data architectures, migrate data, manage external data, and rationalize cloud costs). 2. Ethical & Efficient AI (guiding responsible AI implementation, developing custom models, and ensuring transparency). 3. SaaS Rationalization (optimizing clients' software portfolios to cut costs and improve strategy). Your goal is to answer questions from potential clients about these services, explain their value, and encourage them to contact ahatis for more detailed discussions. Do not invent services ahatis does not offer. Keep responses to a few paragraphs at most.`;
+
+            const callGeminiApi = async (userQuery) => {
+                addUserMessage(userQuery);
+                chatPromptsContainer.classList.add('hidden');
+                showTypingIndicator();
+
+                const apiKey = ""; // API key is handled by the environment.
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
+                };
+                
+                let retries = 3;
+                let delay = 1000;
+
+                for (let i = 0; i < retries; i++) {
+                    try {
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                           throw new Error(`API responded with status: ${response.status}`);
+                        }
+
+                        const result = await response.json();
+                        const candidate = result.candidates?[0];
+
+                        removeTypingIndicator();
+                        
+                        if (candidate && candidate.content?.parts?.[0]?.text) {
+                            const aiResponse = candidate.content.parts[0].text;
+                            addAiMessage(aiResponse.replace(/\*/g, '')); // Basic markdown removal
+                        } else {
+                            addAiMessage("I'm sorry, I couldn't generate a response. Please try asking in a different way.");
+                        }
+                        return; // Exit after successful call
+                        
+                    } catch (error) {
+                        console.error(`Attempt ${i + 1} failed:`, error);
+                        if (i < retries - 1) {
+                            await new Promise(res => setTimeout(res, delay));
+                            delay *= 2; // Exponential backoff
+                        } else {
+                            removeTypingIndicator();
+                            addAiMessage("I'm having trouble connecting right now. Please try again in a moment.");
+                        }
+                    }
+                }
+            };
+
+            chatForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const userQuery = chatInput.value.trim();
+                if (userQuery) {
+                    callGeminiApi(userQuery);
+                    chatInput.value = '';
+                }
+            });
+
+            promptButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const promptText = button.textContent;
+                    callGeminiApi(promptText);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
