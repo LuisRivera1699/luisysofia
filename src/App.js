@@ -397,7 +397,7 @@ function App() {
               className={`w-[362px] absolute left-1/2 top-0 transform -translate-x-1/2 transition-opacity duration-1000 ${fadeState ? 'opacity-0' : 'opacity-100'
                 } flex flex-col items-center gap-4`}
             >
-              <h1 className='text-[18px] w-[362px] text-center pierson text-black'>Hoy somos uno solo. Somos amigos, compañeros, complices, amantes y queremos seguirlo siendo hasta el final de nuestros dias.</h1>
+              <h1 className='text-[18px] w-[362px] text-center pierson text-black'>Hoy somos uno solo. Somos amigos, compañeros, complices, amantes y queremos seguirlo siendo hasta el final de nuestros días.</h1>
               <h1 className='w-[300px] text-[18px] text-center pierson text-black'>Gracias a los que nos han acompañado todos estos años (solos y juntos).</h1>
             </div>
           </div>
@@ -550,7 +550,7 @@ function App() {
           <div className="relative flex-shrink-1 mx-4 flex items-center justify-center min-w-[614px] max-[600px]:min-w-[90%]" data-aos="fade-up">
             <img src="/images/assets/card.png" className="w-full h-auto max-w-full [@media(max-height:800px)]:w-auto" />
             <img src="/images/assets/card-text.svg" className={`w-[70%] h-auto max-w-full absolute top-[80px] max-[600px]:top-[40px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[70%] [@media(max-height:800px)]:top-[50px] ${window.innerHeight < window.innerWidth ? '[@media(max-height:800px)]:w-[45%]' : ''}`} style={{ filter: 'none', colorScheme: 'light' }} />
-            <img src="/images/assets/card-save.svg" className="w-[70%] h-auto max-w-full absolute bottom-[105px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[50%]" />
+            <img src="/images/assets/card-save.svg" className="w-[70%] h-auto max-w-full absolute bottom-[85px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[50%]" />
             <div className="absolute bottom-[20px] left-1/2 -translate-x-[47%] flex items-center justify-center">
               <div
                 className="text-center flex items-center justify-center gap-2"
@@ -1058,7 +1058,7 @@ function App() {
           <h1 className="text-[51px] z-10 px-2 leading-normal">Detalles</h1>
           <div className="flex flex-col items-center justify-center gap-10">
             <div className="flex flex-col gap-4">
-              <h1 className="text-[18px] w-[362px] text-center pierson">De preferencia, este será un evento solo para adultos, ya que habrá bebidas alcohólicas y elementos que podrían no ser seguros para niños.</h1>
+              <h1 className="text-[18px] w-[362px] text-center pierson">Este será un evento solo para adultos, ya que habrá bebidas alcohólicas y elementos que podrían no ser seguros para niños.</h1>
               <h1 className="text-[18px] w-[362px] text-center pierson">Te pedimos llegar puntual para poder disfrutar juntos cada momento del cronograma. 🤍</h1>
             </div>
             <img src="/images/assets/details.png" className="w-[362px] h-auto" />
