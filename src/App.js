@@ -881,7 +881,7 @@ function App() {
             <div className="flex flex-col gap-20 items-center">
               <h1 className="text-[43.3px] w-full text-center">Confirma tu asistencia</h1>
               <div className="flex flex-col gap-6">
-                <h1 className="text-[18px] text-center pierson asistencia">¡Nos gustaría compratir este momento tan importante con todos ustedes! Queremos vivir este día junto a las personas que más queremos.
+                <h1 className="text-[18px] text-center pierson asistencia">¡Nos gustaría compartir este momento tan importante con todos ustedes! Queremos vivir este día junto a las personas que más queremos.
                 </h1>
                 <h1 className="text-[18px] text-center pierson asistencia"> Confirma tu asistencia antes del 7 de enero de 2026 y celebra con nosotros el inicio de esta nueva etapa.
                 </h1>
@@ -983,7 +983,7 @@ function App() {
             <div className="flex flex-col gap-20 items-center">
               <h1 className="text-[43.3px] w-full text-center">Confirma tu asistencia</h1>
               <div className="flex flex-col gap-6">
-                <h1 className="text-[18px] text-center pierson asistencia">¡Nos gustaría compratir este momento tan importante con todos ustedes! Queremos vivir este día junto a las personas que más queremos.
+                <h1 className="text-[18px] text-center pierson asistencia">¡Nos gustaría compartir este momento tan importante con todos ustedes! Queremos vivir este día junto a las personas que más queremos.
                 </h1>
                 <h1 className="text-[18px] text-center pierson asistencia"> Confirma tu asistencia antes del 7 de enero de 2026 y celebra con nosotros el inicio de esta nueva etapa.
                 </h1>
