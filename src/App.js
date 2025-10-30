@@ -29,7 +29,15 @@ function App() {
       easing: 'ease-in-sine',
       once: false,
       mirror: true,
+      offset: 0,
+      anchorPlacement: 'top-bottom',
     });
+
+    const timer = setTimeout(() => {
+      AOS.refresh();
+    }, 500);
+  
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
