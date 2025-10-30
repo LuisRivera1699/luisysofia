@@ -18,6 +18,16 @@
   font-display: swap;
 }
 
+/* Forzar modo claro en todos los navegadores */
+:root {
+  color-scheme: only light !important;
+  supported-color-schemes: light !important;
+}
+
+html {
+  color-scheme: only light !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -25,6 +35,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: only light !important;
+  background-color: #ffffff !important;
 }
 
 code {
@@ -36,7 +48,11 @@ h1 {
   margin: 0;
   font-family: 'EDLavonia', serif;
   line-height: 1;
-  color: #fff;
+  color: #ffffff !important;
+}
+
+.text-black {
+  color: #000000 !important;
 }
 
 .pierson {
@@ -49,4 +65,24 @@ h1 {
 
 .regalos {
   line-height: 1.5;
+}
+
+/* Prevenir que SVGs cambien de color */
+svg {
+  color-scheme: only light !important;
+}
+
+svg path,
+svg text,
+svg circle,
+svg rect,
+svg line,
+svg polyline,
+svg polygon {
+  color-scheme: only light !important;
+}
+
+/* Forzar colores específicos */
+* {
+  color-scheme: only light !important;
 }

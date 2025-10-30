@@ -232,7 +232,7 @@ function App() {
 
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ colorScheme: 'only light' }}>
       {/* Header con menú hamburguesa */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
         <div className="flex items-center justify-end px-6 py-4">
@@ -248,12 +248,13 @@ function App() {
               strokeLinejoin="round"
               strokeWidth="2"
               viewBox="0 0 24 24"
-              stroke="currentColor"
+              stroke="#ffffff"
+              style={{ colorScheme: 'only light' }}
             >
               {isMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
+                <path d="M6 18L18 6M6 6l12 12" stroke="#ffffff" />
               ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
+                <path d="M4 6h16M4 12h16M4 18h16" stroke="#ffffff" />
               )}
             </svg>
           </button>
@@ -264,11 +265,12 @@ function App() {
       <div
         className={`fixed top-0 right-0 h-full w-64 bg-[#0A2A73] shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
+        style={{ colorScheme: 'only light' }}
       >
         <div className="flex flex-col h-full">
           {/* Header del menú */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-white/20">
-            <h2 className="text-white text-xl font-bold" style={{ fontFamily: 'Caveat, cursive' }}>
+            <h2 className="text-white text-xl font-bold" style={{ fontFamily: 'Caveat, cursive', color: '#ffffff' }}>
               Menú
             </h2>
             <button
@@ -283,9 +285,10 @@ function App() {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                stroke="#ffffff"
+                style={{ colorScheme: 'only light' }}
               >
-                <path d="M6 18L18 6M6 6l12 12" />
+                <path d="M6 18L18 6M6 6l12 12" stroke="#ffffff" />
               </svg>
             </button>
           </div>
@@ -297,7 +300,7 @@ function App() {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className="w-full text-left px-6 py-3 text-white hover:bg-white/10 transition-colors duration-200"
-                style={{ fontFamily: 'Caveat, cursive', fontSize: '18px' }}
+                style={{ fontFamily: 'Caveat, cursive', fontSize: '18px', color: '#ffffff' }}
               >
                 {item.label}
               </button>
@@ -324,7 +327,7 @@ function App() {
           minHeight: window.innerHeight < window.innerWidth ? '801px' : 'auto'
         }}
       >
-        <svg viewBox="0 0 600 150" className="w-full max-w-[600px] h-auto" style={{ marginTop: '20px' }}>
+        <svg viewBox="0 0 600 150" className="w-full max-w-[600px] h-auto" style={{ marginTop: '20px', colorScheme: 'only light' }}>
           <defs>
             <path
               id="curve-luis-sofia"
@@ -336,7 +339,7 @@ function App() {
             style={{
               fontFamily: 'EDLavonia',
               fontSize: '61px',
-              fill: 'white',
+              fill: '#ffffff',
               letterSpacing: '3px'
             }}
           >
@@ -350,17 +353,18 @@ function App() {
           </text>
         </svg>
         <div className="flex flex-col items-center gap-4 justify-center h-[20%]">
-          <h1 className="text-[51px]">¡Nos casamos!</h1>
+          <h1 className="text-[51px]" style={{ color: '#ffffff' }}>¡Nos casamos!</h1>
           <div className="relative flex flex-col items-center justify-center h-[42.8px]">
             <img
               src="/images/assets/play.svg"
               className="w-auto h-[100%] cursor-pointer z-10"
               onClick={handlePlay}
+              style={{ colorScheme: 'only light' }}
             />
             <img
               src="/images/assets/tap.svg"
               className="w-auto h-[60%] absolute animate-pulse"
-              style={{ animation: 'pulse-scale 2s ease-in-out infinite', bottom: '0', right: '30%' }}
+              style={{ animation: 'pulse-scale 2s ease-in-out infinite', bottom: '0', right: '30%', colorScheme: 'only light' }}
             />
             <style jsx>{`
               @keyframes pulse-scale {
@@ -384,43 +388,43 @@ function App() {
         }}
       >
         <div className="w-full h-[40%] z-10 px-4 flex flex-col items-center gap-12">
-          <h1 className="text-[51px] z-10 px-2 leading-normal text-black" data-aos="fade-up">Nuestra historia</h1>
+          <h1 className="text-[51px] z-10 px-2 leading-normal text-black" data-aos="fade-up" style={{ color: '#000000' }}>Nuestra historia</h1>
           <div className="relative w-full h-full z-10 px-4" data-aos="fade-up">
             <div
               className={`w-[362px] absolute left-1/2 top-0 transform -translate-x-1/2 transition-opacity duration-1000  ${fadeState ? 'opacity-100' : 'opacity-0'
                 }`}
             >
-              <h1 className="text-[18px] w-[362px] text-center pierson text-black">Nos conocimos en 2015 en la pre de pamer. Fuimos buenos amigos hasta que nuestras carreras y la vida nos alejaron un tiempo. <br /> <br /> Nos reencontramos en el 2023 y fue como si el tiempo no hubiera pasado. Recuperamos una amistad que, no sabíamos, nos acompañaría toda la vida.</h1>
+              <h1 className="text-[18px] w-[362px] text-center pierson text-black" style={{ color: '#000000' }}>Nos conocimos en 2015 en la pre de pamer. Fuimos buenos amigos hasta que nuestras carreras y la vida nos alejaron un tiempo. <br /> <br /> Nos reencontramos en el 2023 y fue como si el tiempo no hubiera pasado. Recuperamos una amistad que, no sabíamos, nos acompañaría toda la vida.</h1>
             </div>
             <div
 
               className={`w-[362px] absolute left-1/2 top-0 transform -translate-x-1/2 transition-opacity duration-1000 ${fadeState ? 'opacity-0' : 'opacity-100'
                 } flex flex-col items-center gap-4`}
             >
-              <h1 className='text-[18px] w-[362px] text-center pierson text-black'>Hoy somos uno solo. Somos amigos, compañeros, complices, amantes y queremos seguirlo siendo hasta el final de nuestros días.</h1>
-              <h1 className='w-[300px] text-[18px] text-center pierson text-black'>Gracias a los que nos han acompañado todos estos años (solos y juntos).</h1>
+              <h1 className='text-[18px] w-[362px] text-center pierson text-black' style={{ color: '#000000' }}>Hoy somos uno solo. Somos amigos, compañeros, complices, amantes y queremos seguirlo siendo hasta el final de nuestros días.</h1>
+              <h1 className='w-[300px] text-[18px] text-center pierson text-black' style={{ color: '#000000' }}>Gracias a los que nos han acompañado todos estos años (solos y juntos).</h1>
             </div>
           </div>
         </div>
 
         <div className="flex items-center justify-center w-full h-[50%] max-w-6xl mx-auto px-4 gap-4" data-aos="fade-up">
           {/* Left Arrow */}
-          <button
-            onClick={() => {
-              const container = document.getElementById('carousel-container');
-              const imageWidth = container.children[0].offsetWidth + 16; // +16 por el gap-4
-              const currentScroll = container.scrollLeft;
-              const targetScroll = currentScroll - imageWidth;
+            <button
+              onClick={() => {
+                const container = document.getElementById('carousel-container');
+                const imageWidth = container.children[0].offsetWidth + 16; // +16 por el gap-4
+                const currentScroll = container.scrollLeft;
+                const targetScroll = currentScroll - imageWidth;
 
-              container.scrollTo({
-                left: targetScroll,
-                behavior: 'smooth'
-              });
-            }}
-            className="flex-shrink-0 p-2 hover:opacity-80 transition-opacity z-10"
-          >
-            <img src="/images/carrousels/arrow-left.svg" className="w-8 h-8" alt="Previous" />
-          </button>
+                container.scrollTo({
+                  left: targetScroll,
+                  behavior: 'smooth'
+                });
+              }}
+              className="flex-shrink-0 p-2 hover:opacity-80 transition-opacity z-10"
+            >
+              <img src="/images/carrousels/arrow-left.svg" className="w-8 h-8" alt="Previous" style={{ colorScheme: 'only light' }} />
+            </button>
 
           {/* Carousel Container */}
           <div
@@ -436,92 +440,92 @@ function App() {
             <img
               src="/images/carrousels/10/image-1.png"
               className="flex-shrink-0 cursor-pointer"
-              style={{ scrollSnapAlign: 'center' }}
+              style={{ scrollSnapAlign: 'center', colorScheme: 'only light' }}
               alt="Image 1"
               onClick={() => openImageModal('/images/carrousels/10/image-1.png')}
             />
             <img
               src="/images/carrousels/10/image-2.png"
               className="flex-shrink-0 cursor-pointer"
-              style={{ scrollSnapAlign: 'center' }}
+              style={{ scrollSnapAlign: 'center', colorScheme: 'only light' }}
               alt="Image 2"
               onClick={() => openImageModal('/images/carrousels/10/image-2.png')}
             />
             <img
               src="/images/carrousels/10/image-3.png"
               className="flex-shrink-0 cursor-pointer"
-              style={{ scrollSnapAlign: 'center' }}
+              style={{ scrollSnapAlign: 'center', colorScheme: 'only light' }}
               alt="Image 3"
               onClick={() => openImageModal('/images/carrousels/10/image-3.png')}
             />
             <img
               src="/images/carrousels/10/image-4.png"
               className="flex-shrink-0 cursor-pointer"
-              style={{ scrollSnapAlign: 'center' }}
+              style={{ scrollSnapAlign: 'center', colorScheme: 'only light' }}
               alt="Image 4"
               onClick={() => openImageModal('/images/carrousels/10/image-4.png')}
             />
             <img
               src="/images/carrousels/10/image-5.png"
               className="flex-shrink-0 cursor-pointer"
-              style={{ scrollSnapAlign: 'center' }}
+              style={{ scrollSnapAlign: 'center', colorScheme: 'only light' }}
               alt="Image 5"
               onClick={() => openImageModal('/images/carrousels/10/image-5.png')}
             />
             <img
               src="/images/carrousels/11/image-1.png"
               className="flex-shrink-0 cursor-pointer"
-              style={{ scrollSnapAlign: 'center' }}
+              style={{ scrollSnapAlign: 'center', colorScheme: 'only light' }}
               alt="Image 1"
               onClick={() => openImageModal('/images/carrousels/11/image-1.png')}
             />
             <img
               src="/images/carrousels/11/image-2.png"
               className="flex-shrink-0 cursor-pointer"
-              style={{ scrollSnapAlign: 'center' }}
+              style={{ scrollSnapAlign: 'center', colorScheme: 'only light' }}
               alt="Image 2"
               onClick={() => openImageModal('/images/carrousels/11/image-2.png')}
             />
             <img
               src="/images/carrousels/11/image-3.png"
               className="flex-shrink-0 cursor-pointer"
-              style={{ scrollSnapAlign: 'center' }}
+              style={{ scrollSnapAlign: 'center', colorScheme: 'only light' }}
               alt="Image 3"
               onClick={() => openImageModal('/images/carrousels/11/image-3.png')}
             />
             <img
               src="/images/carrousels/11/image-4.png"
               className="flex-shrink-0 cursor-pointer"
-              style={{ scrollSnapAlign: 'center' }}
+              style={{ scrollSnapAlign: 'center', colorScheme: 'only light' }}
               alt="Image 4"
               onClick={() => openImageModal('/images/carrousels/11/image-4.png')}
             />
             <img
               src="/images/carrousels/11/image-5.png"
               className="flex-shrink-0 cursor-pointer"
-              style={{ scrollSnapAlign: 'center' }}
+              style={{ scrollSnapAlign: 'center', colorScheme: 'only light' }}
               alt="Image 5"
               onClick={() => openImageModal('/images/carrousels/11/image-5.png')}
             />
           </div>
 
           {/* Right Arrow */}
-          <button
-            onClick={() => {
-              const container = document.getElementById('carousel-container');
-              const imageWidth = container.children[0].offsetWidth + 16; // +16 por el gap-4
-              const currentScroll = container.scrollLeft;
-              const targetScroll = currentScroll + imageWidth;
+            <button
+              onClick={() => {
+                const container = document.getElementById('carousel-container');
+                const imageWidth = container.children[0].offsetWidth + 16; // +16 por el gap-4
+                const currentScroll = container.scrollLeft;
+                const targetScroll = currentScroll + imageWidth;
 
-              container.scrollTo({
-                left: targetScroll,
-                behavior: 'smooth'
-              });
-            }}
-            className="flex-shrink-0 p-2 hover:opacity-80 transition-opacity z-10"
-          >
-            <img src="/images/carrousels/arrow-right.svg" className="w-8 h-8" alt="Next" />
-          </button>
+                container.scrollTo({
+                  left: targetScroll,
+                  behavior: 'smooth'
+                });
+              }}
+              className="flex-shrink-0 p-2 hover:opacity-80 transition-opacity z-10"
+            >
+              <img src="/images/carrousels/arrow-right.svg" className="w-8 h-8" alt="Next" style={{ colorScheme: 'only light' }} />
+            </button>
         </div>
 
         <style jsx>{`
@@ -544,13 +548,13 @@ function App() {
           <img
             src="/images/assets/left-photo.svg"
             className="w-[397px] h-[597px] flex-shrink-0 object-contain"
-            style={{ minWidth: '397px' }}
+            style={{ minWidth: '397px', colorScheme: 'only light' }}
             data-aos="fade-right"
           />
           <div className="relative flex-shrink-1 mx-4 flex items-center justify-center min-w-[614px] max-[600px]:min-w-[90%]" data-aos="fade-up">
-            <img src="/images/assets/card.png" className="w-full h-auto max-w-full [@media(max-height:800px)]:w-auto" />
-            <img src="/images/assets/card-text.svg" className={`w-[70%] h-auto max-w-full absolute top-[80px] max-[600px]:top-[40px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[70%] [@media(max-height:800px)]:top-[50px] ${window.innerHeight < window.innerWidth ? '[@media(max-height:800px)]:w-[45%]' : ''}`} style={{ filter: 'none', colorScheme: 'light' }} />
-            <img src="/images/assets/card-save.svg" className="w-[70%] h-auto max-w-full absolute bottom-[85px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[50%]" />
+            <img src="/images/assets/card.png" className="w-full h-auto max-w-full [@media(max-height:800px)]:w-auto" style={{ colorScheme: 'only light' }} />
+            <img src="/images/assets/card-text.svg" className={`w-[70%] h-auto max-w-full absolute top-[80px] max-[600px]:top-[40px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[70%] [@media(max-height:800px)]:top-[50px] ${window.innerHeight < window.innerWidth ? '[@media(max-height:800px)]:w-[45%]' : ''}`} style={{ filter: 'none', colorScheme: 'only light' }} />
+            <img src="/images/assets/card-save.svg" className="w-[70%] h-auto max-w-full absolute bottom-[85px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[50%]" style={{ colorScheme: 'only light' }} />
             <div className="absolute bottom-[20px] left-1/2 -translate-x-[47%] flex items-center justify-center">
               <div
                 className="text-center flex items-center justify-center gap-2"
@@ -558,7 +562,8 @@ function App() {
                   fontFamily: 'Caveat, cursive',
                   color: '#4a3728',
                   fontSize: '24px',
-                  fontWeight: '600'
+                  fontWeight: '600',
+                  colorScheme: 'only light'
                 }}
               >
                 {/* Números del countdown */}
@@ -602,7 +607,7 @@ function App() {
           <img
             src="/images/assets/right-photo.svg"
             className="w-[397px] h-[597px] flex-shrink-0 object-contain"
-            style={{ minWidth: '397px' }}
+            style={{ minWidth: '397px', colorScheme: 'only light' }}
             data-aos="fade-left"
           />
         </div>
@@ -661,7 +666,7 @@ function App() {
             opacity: '0.5'
           }}
         />
-        <h1 className="text-[51px] z-10 px-2 leading-normal" data-aos="fade-up">¿Dónde?</h1>
+        <h1 className="text-[51px] z-10 px-2 leading-normal" data-aos="fade-up" style={{ color: '#ffffff' }}>¿Dónde?</h1>
         <div className="relative h-[290px] w-full mb-6" data-aos="fade-up">
           <div
             className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer"
@@ -672,15 +677,18 @@ function App() {
             <img
               src="/images/assets/front-card-4.svg"
               className="w-full h-full absolute [backface-visibility:hidden] z-10"
+              style={{ colorScheme: 'only light' }}
             />
             <div className="w-full h-full absolute [transform:rotateY(180deg)] [backface-visibility:hidden]">
               <img
                 src="/images/assets/back-card-4.svg"
                 className="w-full h-full absolute top-0 left-0 z-10"
+                style={{ colorScheme: 'only light' }}
               />
               <img
                 src="/images/assets/back-button-4.svg"
                 className="w-auto h-auto absolute bottom-[40px] left-1/2 -translate-x-1/2 z-10"
+                style={{ colorScheme: 'only light' }}
                 onClick={() => {
                   window.open('https://maps.app.goo.gl/e9KFaLUbDwG9RozH6', '_blank');
                 }}
@@ -693,7 +701,8 @@ function App() {
             className="w-[30px] absolute animate-pulse left-1/2"
             style={{
               bottom: '-30px',
-              animation: 'pulse-scale 2s ease-in-out infinite'
+              animation: 'pulse-scale 2s ease-in-out infinite',
+              colorScheme: 'only light'
             }}
           />
               <style jsx>{`
@@ -744,7 +753,7 @@ function App() {
             opacity: '0.85'
           }}
         />
-        <h1 className="text-[51px] z-10 px-2 leading-normal" data-aos="fade-up">¿Cuándo?</h1>
+        <h1 className="text-[51px] z-10 px-2 leading-normal" data-aos="fade-up" style={{ color: '#ffffff' }}>¿Cuándo?</h1>
         <div className="relative w-full h-[290px] w-full" data-aos="fade-up">
           <div
             className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] cursor-pointer"
@@ -755,15 +764,18 @@ function App() {
             <img
               src="/images/assets/front-card-6.svg"
               className="w-full h-full absolute [backface-visibility:hidden] z-10"
+              style={{ colorScheme: 'only light' }}
             />
             <div className="w-full h-full absolute [transform:rotateY(180deg)] [backface-visibility:hidden]">
               <img
                 src="/images/assets/back-card-6.svg"
                 className="w-full h-full absolute top-0 left-0 z-10"
+                style={{ colorScheme: 'only light' }}
               />
               <img
                 src="/images/assets/back-button-6.svg"
                 className="w-auto h-auto absolute top-1/2 -translate-y-[35%] left-1/2 -translate-x-1/2 z-10 cursor-pointer"
+                style={{ colorScheme: 'only light' }}
                 onClick={(e) => {
                   e.stopPropagation(); // Evitar que se voltee la tarjeta
 
@@ -808,7 +820,8 @@ function App() {
             className="w-[30px] absolute animate-pulse left-1/2"
             style={{
               bottom: '-30px',
-              animation: 'pulse-scale 2s ease-in-out infinite'
+              animation: 'pulse-scale 2s ease-in-out infinite',
+              colorScheme: 'only light'
             }}
           />
               <style jsx>{`
@@ -826,6 +839,7 @@ function App() {
           src="/images/assets/calendar-6.png"
           className="w-auto h-[40%] z-10 mt-4"
           data-aos="fade-up"
+          style={{ colorScheme: 'only light' }}
         />
       </section>
       {/* {screenDimensions.width < 768 && (
@@ -874,16 +888,16 @@ function App() {
           <img
             src="/images/assets/left-photo-5.svg"
             className="w-[397px] h-[597px] flex-shrink-0 object-contain"
-            style={{ minWidth: '397px' }}
+            style={{ minWidth: '397px', colorScheme: 'only light' }}
             data-aos="fade-right"
           />
           <div className="flex flex-col gap-16 mx-24 items-center flex-shrink-1" style={{ minWidth: screenDimensions.width < screenDimensions.height ? '90%' : '368px' }} data-aos="fade-up">
             <div className="flex flex-col gap-20 items-center">
-              <h1 className="text-[43.3px] w-full text-center">Confirma tu asistencia</h1>
+              <h1 className="text-[43.3px] w-full text-center" style={{ color: '#ffffff' }}>Confirma tu asistencia</h1>
               <div className="flex flex-col gap-6">
-                <h1 className="text-[18px] text-center pierson asistencia">¡Nos gustaría compartir este momento tan importante con todos ustedes! Queremos vivir este día junto a las personas que más queremos.
+                <h1 className="text-[18px] text-center pierson asistencia" style={{ color: '#ffffff' }}>¡Nos gustaría compartir este momento tan importante con todos ustedes! Queremos vivir este día junto a las personas que más queremos.
                 </h1>
-                <h1 className="text-[18px] text-center pierson asistencia"> Confirma tu asistencia antes del 7 de enero de 2026 y celebra con nosotros el inicio de esta nueva etapa.
+                <h1 className="text-[18px] text-center pierson asistencia" style={{ color: '#ffffff' }}> Confirma tu asistencia antes del 7 de enero de 2026 y celebra con nosotros el inicio de esta nueva etapa.
                 </h1>
               </div>
             </div>
@@ -892,10 +906,10 @@ function App() {
               <button className="w-[250px] h-[65px] text-black rounded-xl bg-[#1f3d58] flex flex-col items-center gap-1 justify-center cursor-pointer" onClick={() => {
                 window.open('https://docs.google.com/forms/d/e/1FAIpQLSca2ULzfyN3qfEQMnyJeVyTt4lvJtHkqyvvCcXwy1cTYWvAgg/viewform?usp=dialog', '_blank');
               }} >
-                <h1 className="text-[18px] w-[250px] text-center pierson">Confirma tu</h1>
-                <h1 className="text-[18px] w-[250px] text-center pierson">aistencia aquí</h1>
+                <h1 className="text-[18px] w-[250px] text-center pierson" style={{ color: '#000000' }}>Confirma tu</h1>
+                <h1 className="text-[18px] w-[250px] text-center pierson" style={{ color: '#000000' }}>aistencia aquí</h1>
               </button>
-              <img src="/images/assets/tap.svg" className="w-[30px] absolute animate-pulse" style={{ bottom: '-30px', right: '-30px', animation: 'pulse-scale 2s ease-in-out infinite' }} />
+              <img src="/images/assets/tap.svg" className="w-[30px] absolute animate-pulse" style={{ bottom: '-30px', right: '-30px', animation: 'pulse-scale 2s ease-in-out infinite', colorScheme: 'only light' }} />
               <style jsx>{`
                 @keyframes pulse-scale {
                   0%, 100% {
@@ -911,7 +925,7 @@ function App() {
           <img
             src="/images/assets/right-photo-5.svg"
             className="w-[397px] h-[597px] flex-shrink-0 object-contain"
-            style={{ minWidth: '397px' }}
+            style={{ minWidth: '397px', colorScheme: 'only light' }}
             data-aos="fade-left"
           />
         </div>
@@ -934,12 +948,12 @@ function App() {
           }}
         />
         <div className="flex flex-col items-center justify-center z-10 gap-4" style={{ width: window.innerWidth < 768 ? undefined : '362px' }} data-aos="fade-up">
-          <h1 className="text-[51px] z-10 px-2 leading-normal">Dresscode</h1>
-          <h1 className="text-[18px] text-center pierson">Les pedimos evitar tonos muy claros como blanco, beige, celeste o amarillo pálido,
+          <h1 className="text-[51px] z-10 px-2 leading-normal" style={{ color: '#ffffff' }}>Dresscode</h1>
+          <h1 className="text-[18px] text-center pierson" style={{ color: '#ffffff' }}>Les pedimos evitar tonos muy claros como blanco, beige, celeste o amarillo pálido,
           así como cualquier color que pueda parecerse al blanco en persona o en fotografías.</h1>
           <div className="relative mb-4">
-            <img src="/images/assets/dresses.png" className="w-full h-auto" />
-            <img src="/images/assets/inspo.svg" className="w-[50px] absolute animate-pulse" style={{ bottom: '-40px', right: '-40px', animation: 'pulse-scale 2s ease-in-out infinite' }} />
+            <img src="/images/assets/dresses.png" className="w-full h-auto" style={{ colorScheme: 'only light' }} />
+            <img src="/images/assets/inspo.svg" className="w-[50px] absolute animate-pulse" style={{ bottom: '-40px', right: '-40px', animation: 'pulse-scale 2s ease-in-out infinite', colorScheme: 'only light' }} />
             <style jsx>{`
               @keyframes pulse-scale {
                 0%, 100% {
@@ -951,8 +965,8 @@ function App() {
               }
             `}</style>
           </div>
-          <h1 className="text-[18px] text-center pierson">Palete de colores ideal <br /> (No es obligatorio)</h1>
-          <img src="/images/assets/colors.png" className="h-auto" />
+          <h1 className="text-[18px] text-center pierson" style={{ color: '#ffffff' }}>Palete de colores ideal <br /> (No es obligatorio)</h1>
+          <img src="/images/assets/colors.png" className="h-auto" style={{ colorScheme: 'only light' }} />
         </div>
       </section>
       {/* <section
@@ -997,7 +1011,7 @@ function App() {
                 <h1 className="text-[18px] w-[250px] text-center pierson">Confirma tu</h1>
                 <h1 className="text-[18px] w-[250px] text-center pierson">aistencia aquí</h1>
               </button>
-              <img src="/images/assets/tap.svg" className="w-[30px] absolute animate-pulse" style={{ bottom: '-30px', right: '-30px', animation: 'pulse-scale 2s ease-in-out infinite' }} />
+              <img src="/images/assets/tap.svg" className="w-[30px] absolute animate-pulse" style={{ bottom: '-30px', right: '-30px', animation: 'pulse-scale 2s ease-in-out infinite', colorScheme: 'only light' }} />
               <style jsx>{`
                 @keyframes pulse-scale {
                   0%, 100% {
@@ -1013,7 +1027,7 @@ function App() {
           <img
             src="/images/assets/right-photo-5.svg"
             className="w-[397px] h-[597px] flex-shrink-0 object-contain"
-            style={{ minWidth: '397px' }}
+            style={{ minWidth: '397px', colorScheme: 'only light' }}
             data-aos="fade-left"
           />
         </div>
@@ -1034,7 +1048,7 @@ function App() {
             opacity: '0.50'
           }}
         />
-        <img src="/images/assets/title-7.svg" className={`h-auto z-10 ${screenDimensions.width < screenDimensions.height ? 'w-[80%]' : 'w-auto'}`} data-aos="fade-up" />
+        <img src="/images/assets/title-7.svg" className={`h-auto z-10 ${screenDimensions.width < screenDimensions.height ? 'w-[80%]' : 'w-auto'}`} data-aos="fade-up" style={{ colorScheme: 'only light' }} />
       </section> */}
       
       <section
@@ -1055,13 +1069,13 @@ function App() {
           }}
         />
         <div className="flex flex-col items-center justify-center z-10 gap-8" data-aos="fade-up">
-          <h1 className="text-[51px] z-10 px-2 leading-normal">Detalles</h1>
+          <h1 className="text-[51px] z-10 px-2 leading-normal" style={{ color: '#ffffff' }}>Detalles</h1>
           <div className="flex flex-col items-center justify-center gap-10">
             <div className="flex flex-col gap-4">
-              <h1 className="text-[18px] w-[362px] text-center pierson">Este será un evento solo para adultos, ya que habrá bebidas alcohólicas y elementos que podrían no ser seguros para niños.</h1>
-              <h1 className="text-[18px] w-[362px] text-center pierson">Te pedimos llegar puntual para poder disfrutar juntos cada momento del cronograma. 🤍</h1>
+              <h1 className="text-[18px] w-[362px] text-center pierson" style={{ color: '#ffffff' }}>Este será un evento solo para adultos, ya que habrá bebidas alcohólicas y elementos que podrían no ser seguros para niños.</h1>
+              <h1 className="text-[18px] w-[362px] text-center pierson" style={{ color: '#ffffff' }}>Te pedimos llegar puntual para poder disfrutar juntos cada momento del cronograma. 🤍</h1>
             </div>
-            <img src="/images/assets/details.png" className="w-[362px] h-auto" />
+            <img src="/images/assets/details.png" className="w-[362px] h-auto" style={{ colorScheme: 'only light' }} />
           </div>
         </div>
       </section>
@@ -1096,7 +1110,7 @@ function App() {
           height: '100vh'
         }}
       >
-        <img src="/images/assets/text-12.svg" className="z-10" />
+        <img src="/images/assets/text-12.svg" className="z-10" style={{ colorScheme: 'only light' }} />
       </section> */}
       <section
         id="mensaje"
@@ -1117,12 +1131,12 @@ function App() {
         />
         <div className='flex flex-col items-center justify-center gap-16 text-center z-10' data-aos="fade-up">
           <div className='flex flex-col items-center justify-center gap-4'>
-            <h1 className='text-[51px] z-10 px-2 leading-normal'>Regalos</h1>
-            <h1 className='text-[18px] w-[362px] text-center pierson regalos'>¡Nos llena de emoción compartir este día tan especial con ustedes! Su presencia es el mejor regalo que podemos recibir. Pero si desean tener un detalle adicional, aquí encontrarán nuestras mesas de regalos. 🎁</h1>
+            <h1 className='text-[51px] z-10 px-2 leading-normal' style={{ color: '#ffffff' }}>Regalos</h1>
+            <h1 className='text-[18px] w-[362px] text-center pierson regalos' style={{ color: '#ffffff' }}>¡Nos llena de emoción compartir este día tan especial con ustedes! Su presencia es el mejor regalo que podemos recibir. Pero si desean tener un detalle adicional, aquí encontrarán nuestras mesas de regalos. 🎁</h1>
           </div>
           <div className='flex flex-col items-center justify-center gap-10'>
-            <h1 className='text-[18px] w-[362px] text-center pierson regalos'>Banco Interbank<br />Nombre: Sofía Isabel Puntriano García<br />No. de cuenta: 98742983740347<br /><br />o<br /><br />yape/plin<br />955170938</h1>
-            <h1 className='text-[41px] w-[362px] text-center'>¡Muchas gracias!</h1>
+            <h1 className='text-[18px] w-[362px] text-center pierson regalos' style={{ color: '#ffffff' }}>Banco Interbank<br />Nombre: Sofía Isabel Puntriano García<br />No. de cuenta: 98742983740347<br /><br />o<br /><br />yape/plin<br />955170938</h1>
+            <h1 className='text-[41px] w-[362px] text-center' style={{ color: '#ffffff' }}>¡Muchas gracias!</h1>
           </div>
         </div>
       </section>
@@ -1132,12 +1146,14 @@ function App() {
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90"
           onClick={closeImageModal}
+          style={{ colorScheme: 'only light' }}
         >
           {/* Botón cerrar (X) */}
           <button
             onClick={closeImageModal}
             className="absolute top-4 right-4 text-white text-4xl font-light hover:text-gray-300 transition-colors z-[101]"
             aria-label="Cerrar"
+            style={{ color: '#ffffff' }}
           >
             ×
           </button>
@@ -1151,6 +1167,7 @@ function App() {
               src={selectedImage}
               alt="Imagen ampliada"
               className="max-w-full max-h-[95vh] object-contain"
+              style={{ colorScheme: 'only light' }}
             />
           </div>
         </div>
