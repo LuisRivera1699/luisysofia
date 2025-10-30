@@ -392,7 +392,8 @@ function App() {
         className="bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center relative overflow-hidden py-6 gap-5"
         style={{
           backgroundImage: "url('/images/backgrounds/bg-10.png')",
-          height: '100vh'
+          height: '100vh',
+          minHeight: window.innerHeight < window.innerWidth ? '801px' : 'auto'
         }}
       >
         <div className="w-full h-[40%] z-10 px-4 flex flex-col items-center gap-12">
@@ -560,9 +561,9 @@ function App() {
             data-aos="fade-right"
           />
           <div className="relative flex-shrink-1 mx-4 flex items-center justify-center min-w-[614px] max-[600px]:min-w-[90%]" data-aos="fade-up">
-            <img src="/images/assets/card.png" className="w-full h-auto max-w-full [@media(max-height:800px)]:w-auto" style={{ colorScheme: 'only light' }} />
-            <img src="/images/assets/card-text.svg" className={`w-[70%] h-auto max-w-full absolute top-[80px] max-[600px]:top-[40px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[70%] [@media(max-height:800px)]:top-[50px] ${window.innerHeight < window.innerWidth ? '[@media(max-height:800px)]:w-[45%]' : ''}`} style={{ filter: 'none', colorScheme: 'only light' }} />
-            <img src="/images/assets/card-save.svg" className="w-[70%] h-auto max-w-full absolute bottom-[85px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[50%]" style={{ colorScheme: 'only light' }} />
+            <img src="/images/assets/card.png" className={`w-full h-auto max-w-full ${window.innerHeight < window.innerWidth ? "" : "[@media(max-height:800px)]:w-auto"}`} style={{ colorScheme: 'only light' }} />
+            <img src="/images/assets/card-text.svg" className={`w-[70%] h-auto max-w-full absolute top-[80px] max-[600px]:top-[40px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[70%] [@media(max-height:800px)]:top-[70px] ${window.innerHeight < window.innerWidth ? '[@media(max-height:800px)]:w-[45%]' : ''}`} style={{ filter: 'none', colorScheme: 'only light' }} />
+            <img src="/images/assets/card-save.svg" className="w-[70%] h-auto max-w-full absolute bottom-[85px] left-1/2 -translate-x-1/2 [@media(max-height:800px)]:w-[50%] md:bottom-[125px]" style={{ colorScheme: 'only light' }} />
             <div className="absolute bottom-[20px] left-1/2 -translate-x-[47%] flex items-center justify-center">
               <div
                 className="text-center flex items-center justify-center gap-2"
@@ -576,38 +577,60 @@ function App() {
               >
                 {/* Números del countdown */}
                 <div className="flex flex-col items-center">
-                  <span style={{ fontSize: '32px', fontWeight: '700' }}>
+                  <span style={{ fontWeight: '700' }}
+                  className="text-[32px] md:text-[48px]"
+                  >
                     {String(timeLeft.days || 0).padStart(3, '0')}
                   </span>
-                  <span style={{ fontSize: '16px', fontWeight: '400' }}>DÍAS</span>
+                  <span style={{ fontWeight: '400' }}
+                  className="text-[16px] md:text-[24px]"
+                  >DÍAS</span>
                 </div>
                 <div className="relative h-full">
-                  <span style={{ fontSize: '24px', fontWeight: '700', position: 'absolute', top: "0px", transform: "translateY(-72%)" }}>:</span>
+                  <span style={{ fontWeight: '700', position: 'absolute', top: "0px", transform: "translateY(-72%)" }}
+                  className="text-[24px] md:text-[32px]"
+                  >:</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <span style={{ fontSize: '32px', fontWeight: '700' }}>
+                  <span style={{ fontWeight: '700' }}
+                  className="text-[32px] md:text-[48px]"
+                  >
                     {String(timeLeft.hours || 0).padStart(2, '0')}
                   </span>
-                  <span style={{ fontSize: '16px', fontWeight: '400' }}>HORAS</span>
+                  <span style={{ fontWeight: '400' }}
+                  className="text-[16px] md:text-[24px]"
+                  >HORAS</span>
                 </div>
                 <div className="relative h-full">
-                  <span style={{ fontSize: '24px', fontWeight: '700', position: 'absolute', top: "0px", transform: "translateY(-72%)" }}>:</span>
+                  <span style={{ fontWeight: '700', position: 'absolute', top: "0px", transform: "translateY(-72%)" }}
+                  className="text-[24px] md:text-[32px]"
+                  >:</span>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <span style={{ fontSize: '32px', fontWeight: '700' }}>
+                  <span style={{ fontWeight: '700' }}
+                  className="text-[32px] md:text-[48px]"
+                  >
                     {String(timeLeft.minutes || 0).padStart(2, '0')}
                   </span>
-                  <span style={{ fontSize: '16px', fontWeight: '400' }}>MINUTOS</span>
+                  <span style={{ fontWeight: '400' }}
+                  className="text-[16px] md:text-[24px]"
+                  >MINUTOS</span>
                 </div>
                 <div className="relative h-full">
-                  <span style={{ fontSize: '24px', fontWeight: '700', position: 'absolute', top: "0px", transform: "translateY(-72%)" }}>:</span>
+                  <span style={{ fontWeight: '700', position: 'absolute', top: "0px", transform: "translateY(-72%)" }}
+                  className="text-[24px] md:text-[32px]"
+                  >:</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <span style={{ fontSize: '32px', fontWeight: '700' }}>
+                  <span style={{ fontWeight: '700' }}
+                  className="text-[32px] md:text-[48px]"
+                  >
                     {String(timeLeft.seconds || 0).padStart(2, '0')}
                   </span>
-                  <span style={{ fontSize: '16px', fontWeight: '400' }}>SEGUNDOS</span>
+                  <span style={{ fontWeight: '400' }}
+                  className="text-[16px] md:text-[24px]"
+                  >SEGUNDOS</span>
                 </div>
               </div>
             </div>
